@@ -1,0 +1,77 @@
+---
+layout: default
+---
+
+<svg viewBox="0 0 886 886" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <circle id="canvas-stroke" cx="443" cy="443" r="443"/>
+    <circle id="canvas-circle" cx="443" cy="443" r="443"/>
+
+    <linearGradient x1="100%" x2="0%" id="gradient-flag">
+      <stop stop-color="#69222E" offset="0%">
+        <animate attributeName="stop-color" values="#69222E; #632229" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+      <stop stop-color="#833235" offset="100%">
+        <animate attributeName="stop-color" values="#833235; #953a30" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient x1="4.97292102%" y1="33.4825317%" x2="100%" y2="52.4262185%" id="gradient-tent">
+      <stop stop-color="#881b2b" offset="0%">
+        <animate attributeName="stop-color" values="#881b2b; #ff826f" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+      <stop stop-color="#5e1c2d" offset="100%">
+        <animate attributeName="stop-color" values="#5e1c2d; #d24d39" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient x1="62.8468551%" y1="57.9522411%" x2="132.219504%" y2="63.3117362%" id="gradient-tentbg">
+      <stop stop-color="#330229" offset="0%">
+        <animate attributeName="stop-color" values="#330229; #642329" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+      <stop stop-color="#610328" offset="100%">
+        <animate attributeName="stop-color" values="#610328; #943930" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient x1="0.00298941746%" x2="99.9970106%" id="gradient-trees">
+      <stop stop-color="#A8483F" offset="0%">
+        <animate attributeName="stop-color" values="#A8483F; #f49d5d" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+      <stop stop-color="#551628" offset="100%">
+        <animate attributeName="stop-color" values="#551628; #891a2a" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient x1="81.9241493%" x2="18.0758507%" id="gradient-sky">
+      <stop stop-color="#803E3F" offset="0%">
+        <animate attributeName="stop-color" values="#803E3F; #fea869" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+      <stop stop-color="#C46C51" offset="100%">
+        <animate attributeName="stop-color" values="#C46C51; #ffdc8c" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient x1="89.4008837%" y1="69.6110167%" x2="19.1579438%" y2="12.5921117%" id="gradient-grass">
+      <stop stop-color="#430229" offset="0%">
+        <animate attributeName="stop-color" values="#430229; #81302a" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+      <stop stop-color="#740529" offset="100%">
+        <animate attributeName="stop-color" values="#740529; #f49d5d" dur="3s" fill="freeze" begin="1s" />
+      </stop>
+    </linearGradient>
+
+    <mask id="mask-canvas" fill="#fff">
+      <use xlink:href="#canvas-circle"/>
+    </mask>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use stroke="#6c272a" fill="url(#gradient-sky)" xlink:href="#canvas-circle"/>
+    <path d="m981.75 547.93l-51.774-119.26 29.378 9.353-67.61-138.23-58.74 120.03-22.966-52.923 29.37 9.345-67.63-138.24-67.6 138.24 29.386-9.345-51.791 119.24 41.35-14.412-37.2 59.08-29.08-66.96 17.842 5.678-41.04-83.89-41.06 83.89 17.858-5.678-29.957 68.94-38.429-61.06 41.36 14.412-51.791-119.24 29.37 9.345-67.6-138.24-67.64 138.24 29.386-9.345-51.782 119.24 41.36-14.412-38.438 61.06-29.94-68.94 17.834 5.678-41.04-83.89-41.05 83.89 17.842-5.678-29.08 66.96-18.225-48.804 22.404 4.134-51.823-119.24 29.419 9.345-67.63-138.24-67.62 138.24 29.37-9.345-22.983 52.923-58.724-120.03-67.63 138.23 29.378-9.353-51.791 119.26 41.38-14.428-32.04 50.886 68.842 137.99c10.184 20.368 41.34 39.619 64.09 39.619h692.21c22.779 0 53.933-19.251 64.13-39.619l68.907-137.83-32.12-51.05 41.35 14.428" fill="url(#gradient-trees)" mask="url(#mask-canvas)"/>
+    <path d="m47 699c0 0 369-60 802 0v199h-802v-199" fill="url(#gradient-grass)" mask="url(#mask-canvas)"/>
+    <path d="m586.67 426.61c10.264 148.28 141.33 341.39 141.33 341.39l-285 54c0 0 111.37-309.2 137.87-382.77v-269.23h5.797v256.61m-308.14-17.993h5.797v344.79h-5.797v-344.79" fill="url(#gradient-tentbg)" mask="url(#mask-canvas)"/>
+    <path d="m584.01 423.66c0 160.25-121.3 410.97-121.3 410.97l-311.71-70c0 0 105.79-148.85 128.1-340.97h304.91" fill="url(#gradient-tent)" mask="url(#mask-canvas)"/>
+    <path d="m708.72 245.18c.019.976-.427 1.36-1.422 1.518 0 0-2.657.847-4.816 1.277-9.564 1.924-19.437 3.712-28.923 3.286-9.707-.435-18.959-2.974-28.673-3.39-9.493-.407-18.998 1.848-28.554 3.762-8.279 1.666-17.07 2.05-25.508 1.167-1.048-.118-1.533-80.46-.123-80.29 8.09.945 16.473.738 24.419-.658 9.547-1.684 19.13-3.674 28.567-3.06 9.762.657 18.924 3.427 28.688 4.102 9.432.652 18.934-.954 28.491-2.639 2.156-.384 5.392-1.128 5.392-1.128.99-.131 1.237.25 1.256 1.217l1.209 74.841m-84.7-28.511c10.829-4.21 13.475-11.166 19.922-24.08 1.488-3.192 7.03-3.853 13.1-1.837.014-.058.032-.115.058-.171.155-.333.501-.524.883-.532-.091-.617-.01-1.263.271-1.866.778-1.669 2.788-2.378 4.486-1.587 1.699.792 2.447 2.788 1.669 4.457-.281.603-.724 1.08-1.255 1.407.24.298.316.686.161 1.019-.026.055-.058.106-.093.154 5.444 3.352 8.502 8.03 7.01 11.217-5.745 13.239-9.375 19.736-5.639 30.738.089.19.152.391.189.599l-41.35-19.28c.181-.106.378-.186.58-.241m24.24 14.446c-1.087 2.331-3.895 3.323-6.271 2.215-2.374-1.107-3.418-3.895-2.331-6.226l8.602 4.01" fill="url(#gradient-flag)" mask="url(#mask-canvas)"/>
+    <use stroke="#6c272a" xlink:href="#canvas-stroke"/>
+  </g>
+</svg>

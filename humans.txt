@@ -1,0 +1,9 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Tyler Campbell
+  Site: http://tyler.camp
+  Twitter: @__t_c
+  Location: AZ
