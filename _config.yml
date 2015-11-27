@@ -3,5 +3,10 @@ title: Tyler Campbell
 description: Tyler Campbell makes things for the Internet.
 url: "http://tyler.camp" # the base hostname & protocol for your site
 
+# Sass
+sass:
+  sass_dir: assets/sass
+  style: compressed
+
 # Exclude
-exclude: [node_modules, gulpfile.js]
+exclude: [__source, gulpfile.js, node_modules]
