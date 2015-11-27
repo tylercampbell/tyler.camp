@@ -9,4 +9,4 @@ sass:
   style: compressed
 
 # Exclude
-exclude: [__source, gulpfile.js, node_modules]
+exclude: [__source, CNAME, gulpfile.js, node_modules]
