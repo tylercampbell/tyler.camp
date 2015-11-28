@@ -14,49 +14,6 @@ svg {
   max-width: 900px;
 }
 
-
-// colors
-$grey-8: rgb(254, 254, 254);
-$grey-7: rgb(230, 230, 230);
-$grey-6: rgb(206, 206, 206);
-$grey-5: rgb(198, 198, 197);
-$grey-4: rgb(182, 182, 182);
-$grey-3a: rgb(168, 167, 167);
-$grey-3: rgb(158, 157, 157);
-$grey-2a: rgb(133, 134, 134);
-$grey-2: rgb(103, 104, 104);
-$grey-1a: rgb(91, 90, 91);
-$grey-1: rgb(81, 80, 81);
-
 body, svg {
-  background: $grey-1;
-}
-#vignette {
-  fill: $grey-1;
-  stroke: $grey-1;
-}
-
-#grass,
-#tent-bg,
-#flag {
-  fill: $grey-1;
-}
-
-#trees-bg {
-  fill: $grey-2a;
-}
-#sky {
-  fill: $grey-2;
-}
-
-#bell,
-#tent-fg {
-  fill: $grey-3;
-}
-
-#trees-fg-right {
-  fill: $grey-1;
-}
-#trees-fg-left {
-  fill: $grey-1a;
+  background: #474647;
 }
