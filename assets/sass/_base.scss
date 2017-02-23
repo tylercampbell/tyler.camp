@@ -3,17 +3,13 @@ html {
   height: 100%;
 }
 body {
+  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
 svg {
-  width: 80vw;
+  width: 90vw;
   max-height: 95vh;
-  max-width: 900px;
-}
-
-body, svg {
-  background: #474647;
 }
