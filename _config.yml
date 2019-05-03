@@ -2,10 +2,11 @@
 title: Tyler Campbell
 description: Tyler Campbell makes things for the Internet.
 url: "http://www.tyler.camp"
+livereload : true
 
 # Sass
 sass:
-  sass_dir: assets/sass
+  sass_dir: assets
   style: compressed
 
 # Exclude
