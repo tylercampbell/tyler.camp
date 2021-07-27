@@ -5,7 +5,7 @@
     "tailwindcss": "^2.2.4"
   },
   "scripts": {
-    "dev": "tailwindcss -o ./build/tailwind.css --watch",
+    "dev": "tailwindcss -i ./styles.css -o ./build/tailwind.css --watch",
     "build": "NODE_ENV=production tailwindcss -i ./styles.css -o ./build/tailwind.css --minify"
   }
 }
