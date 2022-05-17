@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./**/*.html'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/**/*.{html,md,11ty.js,liquid,njk,hbs,mustache,ejs,haml,pug}',
+  ],
 }

@@ -1,6 +1,10 @@
 # redirect to https
 [[redirects]]
-from = "http://www.tyler.camp/*"
-to = "https://www.tyler.camp/:splat"
-status = 301
-force = true
+  from = "http://www.tyler.camp/*"
+  to = "https://www.tyler.camp/:splat"
+  status = 301
+  force = true
+
+[build]
+  publish = "_dist"
+  command = "npm run build"

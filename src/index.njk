@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles.css" />
+    {% favicons './src/icons8-face_vomiting.svg' %}
+    {% metagen
+      title="Tyler Campbell",
+      desc="Tyler Campbell is a Creative Director located in the state of Georgia.",
+      url="https://www.tyler.camp",
+      img="https://www.tyler.camp/ty-memoji.png",
+      img_alt="Tyler Campbell",
+      twitter_card_type="summary_large_image",
+      twitter_handle="TylerScramble",
+      name="Tyler Campbell",
+      generator="eleventy"
+    %}
+  </head>
+
+  <body class="bg-[#636982]">
+    {% svgsprite %}
+
+    <main class="grid h-screen place-items-center">
+      {% svg "tylercampbell", "h-full w-full" %}
+      {% svg "twitter-brands", "h-8 aspect-square absolute bottom-4 right-4 fill-blue-400" %}
+    </main>
+  
+  </body>
+</html>

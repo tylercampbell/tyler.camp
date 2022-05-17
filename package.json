@@ -1,11 +1,28 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.2.6",
-    "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
-  },
   "scripts": {
-    "dev": "tailwindcss -i ./styles.css -o ./build/tailwind.css --watch",
-    "build": "NODE_ENV=production tailwindcss -i ./styles.css -o ./build/tailwind.css --minify"
+    "dev:postcss": "postcss src/styles.css -o _dist/styles.css --config ./postcss.config.js -w",
+    "dev:eleventy": "npx eleventy --serve",
+    
+    "build:postcss": "postcss src/styles.css -o _dist/styles.css --config ./postcss.config.js",
+    "build:eleventy": "ELEVENTY_PRODUCTION=true eleventy",
+    
+    "dev": "run-p dev:*",
+    
+    "build": "NODE_ENV=production run-s build:*"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    
+    "@11ty/eleventy": "^1.0.1",
+    "eleventy-plugin-svg-sprite": "^1.2.2",
+    "@quasibit/eleventy-plugin-sitemap": "^2.1.5",
+    "eleventy-plugin-gen-favicons": "^1.1.0",
+    "eleventy-plugin-metagen": "^1.6.0",
+
+    "tailwindcss": "^3.0.22",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.0.2"
   }
 }
