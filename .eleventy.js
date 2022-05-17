@@ -15,7 +15,7 @@ module.exports = function(eleventyConfig) {
 
   // add plugins
   eleventyConfig.addPlugin(faviconsPlugin, {
-    'outputDir': './_dist',
+    'outputDir': './docs',
     'manifestData': {'name': 'Tyler Campbell'},
     'generateManifest': true
   });
@@ -32,7 +32,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: 'src',
-      output: '_dist'
+      output: 'docs'
     }
   };
 };

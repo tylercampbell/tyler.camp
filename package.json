@@ -3,8 +3,8 @@
     "dev:eleventy": "npx eleventy --serve",
     "build:eleventy": "ELEVENTY_PRODUCTION=true eleventy",
     
-    "dev:postcss": "postcss src/styles.css -o _dist/styles.css --config ./postcss.config.js -w",
-    "build:postcss": "postcss src/styles.css -o _dist/styles.css --config ./postcss.config.js",
+    "dev:postcss": "postcss src/styles.css -o docs/styles.css --config ./postcss.config.js -w",
+    "build:postcss": "postcss src/styles.css -o docs/styles.css --config ./postcss.config.js",
     
     "dev": "run-p dev:*",
     "build": "NODE_ENV=production run-s build:*"

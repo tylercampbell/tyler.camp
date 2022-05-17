@@ -1,0 +1,1 @@
+using github pages for hosting cuz lazy. that means i publish to /docs/
