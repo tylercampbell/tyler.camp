@@ -12,6 +12,7 @@ module.exports = function(eleventyConfig) {
 
   // passthrough files
   eleventyConfig.addPassthroughCopy({'./src/ty-memoji.png' : './ty-memoji.png'});
+  eleventyConfig.addPassthroughCopy('./CNAME');
 
   // add plugins
   eleventyConfig.addPlugin(faviconsPlugin, {
