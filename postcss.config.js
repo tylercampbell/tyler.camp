@@ -3,6 +3,9 @@ module.exports = {
     require('postcss-import'),
     require('tailwindcss'),
     require('postcss-100vh-fix'),
-    require('autoprefixer')
+    require('autoprefixer'),
+    require('cssnano')({
+      preset: 'default',
+    })
   ]
 }

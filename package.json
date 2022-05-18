@@ -12,6 +12,7 @@
     "@11ty/eleventy": "^1.0.1",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.5",
     "autoprefixer": "^10.4.2",
+    "cssnano": "^5.1.8",
     "eleventy-plugin-gen-favicons": "^1.1.0",
     "eleventy-plugin-metagen": "^1.6.0",
     "eleventy-plugin-svg-sprite": "^1.2.2",
