@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
     <link rel="stylesheet" href="/styles.css" />
     {% favicons './src/icons8-face_vomiting.svg' %}
     {% metagen
@@ -15,14 +15,17 @@
       twitter_handle="TylerScramble",
       generator="eleventy"
     %}
+    <meta name="theme-color" content="#8b5cf6">
   </head>
 
-  <body class="bg-gradient-to-b from-violet-500 via-fuchsia-400 to-purple-700">
+  <body class="bg-gradient-to-b from-violet-500 via-fuchsia-900 to-violet-500">
     {% svgsprite %}
 
     <main class="grid h-screen place-items-center">
       {% svg "tylercampbell", "h-screen w-screen" %}
-      <a href="https://twitter.com/TylerScramble/" target="_blank" title="Twitter">{% svg "twitter-brands", "h-8 aspect-square absolute bottom-4 right-4 fill-blue-400" %}</a>
+      <a class="absolute top-3/4 right-4" href="https://twitter.com/TylerScramble/" title="Twitter">
+        {% svg "twitter-brands", "h-8 aspect-square fill-blue-400/50" %}
+      </a>
     </main>
   
   </body>
