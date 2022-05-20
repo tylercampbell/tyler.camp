@@ -1,21 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-violet-500">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, viewport-fit=cover" />
-    <link rel="stylesheet" href="/styles.css" />
-    {% favicons './src/icons8-face_vomiting.svg' %}
+    {% favicons './src/_includes/icons8-face_vomiting.svg' %}
     {% metagen
       title="Tyler Campbell",
       name="Tyler Campbell",
       desc="Tyler Campbell is a Creative Director located in the great state of Georgia.",
       url="https://www.tyler.camp",
-      img="https://www.tyler.camp/ty-memoji.png",
+      img="https://www.tyler.camp/tyler.camp.png",
       img_alt="Tyler Campbell",
       twitter_handle="TylerScramble",
       generator="eleventy"
     %}
     <meta name="theme-color" content="#8b5cf6">
+
+    {% set css %}
+      {% include "styles.css" %}
+    {% endset %}
+    <style>
+      {{css | postcss | safe}}
+    </style>
+
   </head>
 
   <body class="bg-gradient-to-b from-violet-500 via-fuchsia-900 to-violet-500">

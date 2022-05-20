@@ -1,5 +1,5 @@
 module.exports = {
   content: [
-    './docs/index.html',
+    './src/index.njk',
   ],
 }
