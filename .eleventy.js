@@ -2,7 +2,6 @@
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const metagen = require('eleventy-plugin-metagen');
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
-const svgSprite = require("eleventy-plugin-svg-sprite");
 const htmlmin = require("html-minifier");
 const CleanCSS = require("clean-css");
 const postCss = require("postcss");
@@ -29,9 +28,6 @@ module.exports = function(eleventyConfig) {
     sitemap: {
       hostname: "https://www.tyler.camp",
     },
-  });
-  eleventyConfig.addPlugin(svgSprite, {
-    path: "./src/_includes/sprites",
   });
 
   // process postcss & minify with clean-css
