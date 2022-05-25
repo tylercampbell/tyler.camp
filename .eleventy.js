@@ -64,7 +64,7 @@ module.exports = function(eleventyConfig) {
   // process postcss & minify with clean-css
   eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
     const cleanCss = new CleanCSS({});
-    postCss([require("postcss-100vh-fix"),tailwind,require("postcss-100vh-fix"),autoprefixer])
+    postCss([tailwind,autoprefixer])
       .process(cssCode)
       .then(
         (r) => {
