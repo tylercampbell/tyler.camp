@@ -8,6 +8,34 @@ const postCss = require("postcss");
 const tailwind = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
 
+// Shortcode Imports
+const Image = require("@11ty/eleventy-img");
+const path = require("path");
+
+// Picture Shortcode
+function pictureShortcode(src, alt, classes, style, sizes = "100vw", loading = "eager", decoding = "sync") {
+  let url = `./src/_includes/images/${src}`;
+  let options = {
+    widths: [660, 1280],
+    formats: ["svg", "avif", "webp", "jpeg"],
+    urlPath: "/img/opt/",
+    outputDir: "./docs/img/opt/",
+  };
+  Image(url, options);
+  let imageAttributes = {
+    alt,
+    class: classes,
+    style: style,
+    sizes,
+    loading,
+    decoding,
+  };
+  let metadata = Image.statsSync(url, options);
+  return Image.generateHTML(metadata, imageAttributes, {
+    whitespaceMode: "inline",
+  });
+}
+
 module.exports = function(eleventyConfig) {
 
   // watch files for changes
@@ -29,6 +57,9 @@ module.exports = function(eleventyConfig) {
       hostname: "https://www.tyler.camp",
     },
   });
+
+  // add shortcodes
+  eleventyConfig.addShortcode("picture", pictureShortcode);
 
   // process postcss & minify with clean-css
   eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
