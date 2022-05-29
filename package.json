@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production run-s clean build:*"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy": "^2.0.0-canary.11",
     "@11ty/eleventy-img": "^2.0.1",
     "@quasibit/eleventy-plugin-sitemap": "^2.1.5",
     "autoprefixer": "^10.4.2",

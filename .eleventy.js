@@ -1,4 +1,4 @@
-// Plugin Imports
+  // Plugin Imports
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const metagen = require('eleventy-plugin-metagen');
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
@@ -65,7 +65,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
     const cleanCss = new CleanCSS({});
     postCss([tailwind,autoprefixer])
-      .process(cssCode)
+      .process( cssCode, { from: undefined } )
       .then(
         (r) => {
           const result = cleanCss.minify(r.css);
