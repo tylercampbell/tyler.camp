@@ -1,6 +1,7 @@
 ---
 color: '#7c94ac'
-image: IMG_5514.jpeg
+imageBG: tyler_mario.jpg
+imageFG: tyler_airbrush.jpg
 ---
 <!doctype html>
 <html lang="en" style="background-color: {{color}};">
@@ -46,16 +47,16 @@ image: IMG_5514.jpeg
     </svg>
 
     {% picture 
-      image, 
+      imageBG, 
       "",
-      "h-screen w-full object-cover origin-center absolute", 
+      "h-screen w-full object-cover origin-center absolute grayscale", 
       "height: 100dvh;" 
     %}
 
     {% picture 
-      image, 
+      imageFG, 
       "Tyler Campbell", 
-      "h-screen w-full object-cover origin-center brightness-[.6]", 
+      "h-screen w-full object-cover origin-center", 
       "clip-path: url(#tyClip); height: 100dvh;" 
     %}
 
