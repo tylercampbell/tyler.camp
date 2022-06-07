@@ -1,7 +1,7 @@
 ---
-color: '#c9c492'
-imageBG: 2007-04-13.jpg
-imageFG: tyler_airbrush.jpg
+color: '#7bcda9'
+imageBG: GettyImages-912709224.jpeg
+imageFG: tyler_blue.jpg
 ---
 <!doctype html>
 <html lang="en" style="background-color: {{color}};">
@@ -21,10 +21,10 @@ imageFG: tyler_airbrush.jpg
     %}
     <meta name="theme-color" content="{{color}}">
 
-    {% set css %}
-      {% include "styles.css" %}
-    {% endset %}
     <style>
+      {% set css %}
+        {% include "styles.css" %}
+      {% endset %}
       {{css | postcss | safe}}
     </style>
 
@@ -54,9 +54,9 @@ imageFG: tyler_airbrush.jpg
     %}
 
     {% picture 
-      imageBG, 
+      imageFG, 
       "Tyler Campbell", 
-      "h-screen w-full object-cover origin-center grayscale brightness-50 ",
+      "h-screen w-full object-cover origin-center opacity-50",
       "clip-path: url(#tyClip); height: 100dvh;" 
     %}
 

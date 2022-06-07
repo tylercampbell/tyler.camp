@@ -16,7 +16,7 @@ const path = require("path");
 function pictureShortcode(src, alt, classes, style, sizes = "100vw", loading = "eager", decoding = "sync") {
   let url = `./src/_includes/${src}`;
   let options = {
-    widths: [660, 1280],
+    widths: [660, 1280, 1920, 2560],
     formats: ["svg", "avif", "webp", "jpeg"],
     urlPath: "/img/opt/",
     outputDir: "./docs/img/opt/",
