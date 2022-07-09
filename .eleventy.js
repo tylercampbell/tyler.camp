@@ -13,7 +13,7 @@ const Image = require("@11ty/eleventy-img");
 const path = require("path");
 
 // Picture Shortcode
-function pictureShortcode(src, alt, classes, style, sizes = "100vw", loading = "eager", decoding = "sync") {
+function pictureShortcode(src, alt, classes, style, sizes = "100vw", loading = "lazy", decoding = "async") {
   let url = `./src/_includes/images/${src}`;
   let options = {
     widths: [660, 1280, 1920, 2560],
