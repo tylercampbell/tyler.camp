@@ -13,11 +13,11 @@ const Image = require("@11ty/eleventy-img");
 const path = require("path");
 
 // Picture Shortcode
-function pictureShortcode(src, alt, classes, style, sizes = "100vw", loading = "lazy", decoding = "async") {
+function pictureShortcode(src, alt, classes = "", style = "", sizes = "100vw", loading = "lazy", decoding = "async") {
   let url = `./src/_images/${src}`;
   let options = {
-    widths: [660, 1280, 1920, 2560],
-    formats: ["svg", "avif", "webp", "jpeg"],
+    widths: [660, 1920],
+    formats: ["avif", "webp", "jpeg"],
     urlPath: "/img/opt/",
     outputDir: "./docs/img/opt/",
   };
