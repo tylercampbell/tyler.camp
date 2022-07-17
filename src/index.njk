@@ -2,18 +2,19 @@
 color: 'rgb(51 65 85)'
 layout: 'layouts/default.njk'
 ---
-<body class="bg-slate-700">
+<div 
+  class="
+    h-screen w-full
+    overflow-y-scroll snap-y snap-mandatory"
+    style="height: 100dvh"
+>
 
-  <div
-    style="height: 95dvh;"
-    class="h-[95vh] w-full snap-start bg-slate-500"
-  >
+  <div class="h-[95vh] w-full snap-start bg-slate-400" style="height: 95dvh">
     <svg 
-      class="m-auto w-full h-full fill-transparent stroke-slate-900 stroke-1 scale-x-[.94] scale-y-[.96] -rotate-3"
+      class="w-full h-full fill-transparent stroke-slate-900 stroke-1"
       stroke-linejoin="round" 
       stroke-miterlimit="2" 
-      style="height: 100dvh;"
-      preserveAspectRatio="none" 
+      preserveAspectRatio="none"
       viewBox="0 0 1080 905"
       alt="Tyler Campbell"
     >      
@@ -33,21 +34,24 @@ layout: 'layouts/default.njk'
     </svg>
   </div>
 
-
   {% for image in gallery %}
 
     <div 
       id="{{ loop.index }}"
       style="height: 90dvh;"
-      class="h-[90vh] w-full snap-center grid justify-center items-center {{ 'bg-slate-400' if loop.index is divisibleby(2) else 'bg-slate-500' }}"
+      class="
+        h-[90vh] w-full 
+        snap-always snap-center
+        flex justify-center items-center
+        overflow-hidden object-contain
+        {{ 'bg-slate-400' if loop.index is divisibleby(2) else 'bg-slate-500' }}"
     >
-      {% picture 
-        image.src,
-        image.name, 
-        "m-auto w-5/6 h-5/6 max-h-screen max-w-full bg-slate-600 border-8 border-slate-50 ring-8 ring-offset-8 ring-slate-700" 
+      {% picture image.src, image.name, 
+        "w-auto h-auto max-h-[70vh] max-w-[70vw]
+        border-8 border-slate-50 ring-8 ring-offset-8 ring-slate-700"
       %}
     </div>
 
   {% endfor %}
 
-</body>
+</div>
