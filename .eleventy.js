@@ -44,6 +44,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/_includes/styles.css');
 
   // passthrough files
+  eleventyConfig.setServerPassthroughCopyBehavior("copy");
+  eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js' : './ScrollMagic.min.js'});
+  eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js' : './debug.addIndicators.min.js'});
   eleventyConfig.addPassthroughCopy({'./src/static' : './'});
 
   // add plugins

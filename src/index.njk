@@ -25,49 +25,51 @@ color: 'rgb(51 65 85)'
       {% endset %}
       {{css | postcss | safe}}
     </style>
-
+    <script defer id="sm" src="./ScrollMagic.min.js"></script>
+    {# <script src="./debug.addIndicators.min.js"></script> #}
   </head>
 
     <body>
       {% svgsprite %}
 
-      <div 
+      <header
         style="height: 100lvh;"
         class="
           w-full h-screen 
           overflow-x-hidden overflow-y-visible
-          fixed -z-10"
+          fixed -z-10
+          transition duration-500"
       >
-        {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", 
-          "w-full h-full object-cover object-center blur-sm scale-110"
-        %}
+        {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "w-full h-full object-cover object-center blur-sm scale-110" %}
         {% svg "tylercampbell", "absolute left-0 top-0 w-full h-[75vh] fill-rose-700/25" %}
         {% svg "tylercampbell", "absolute left-0 top-0 w-full h-[75vh] fill-transparent stroke-2 stroke-white scale-[0.97]" %}
-      </div>
+      </header>
 
-    <div 
-      style="height: 85svh;"
-      class="
-        snap-center
-        h-[85vh] w-full"
-    >
-    </div>
-      
-    {% for image in gallery %}
-      <article 
-        id="{{ loop.index }}"
-        class="
-          snap-center
-          py-8
-          flex justify-center items-center"
-      >
-        {% picture "gallery/"+image.src, image.name, 
-          "w-auto h-auto max-h-[80vh] max-w-[80vw]
-          border-[16px] border-orange-100 ring-8 ring-slate-900",
-          "max-height: 80svh;"
-        %}
-      </article>
-    {% endfor %}
+      <div id="spacer" style="height: 85svh;" class="h-[85vh] w-full snap-center"></div>
+
+    <main id="gallery">
+      {% for image in gallery %}
+
+        <article 
+          id="picture{{ loop.index }}"
+          class="
+            snap-center
+            py-8
+            flex justify-center items-center"
+        >
+          {% picture "gallery/"+image.src, image.name, 
+            "w-auto h-auto max-h-[80vh] max-w-[80vw]
+            border-[16px] border-orange-100 ring-8 ring-slate-900",
+            "max-height: 80svh;"
+          %}
+        </article>
+
+      {% endfor %}
+    </main>
+
+    <script>
+      {% include 'scrollytelling.js' %}
+    </script>
 
   </body>
 </html>
