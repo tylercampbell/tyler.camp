@@ -1,8 +1,8 @@
 ---
-color: 'rgb(51 65 85)'
+color: 'hsl(254, 4%, 35%)'
 ---
 <!doctype html>
-<html lang="en" class="snap-y snap-mandatory bg-slate-700">
+<html lang="en" class="snap-y snap-mandatory bg-stone-700">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, viewport-fit=cover" />
@@ -18,7 +18,6 @@ color: 'rgb(51 65 85)'
       generator="eleventy"
     %}
     <meta name="theme-color" content="{{color}}">
-
     <style>
       {% set css %}
         {% include "styles.css" %}
@@ -35,14 +34,20 @@ color: 'rgb(51 65 85)'
       <header
         style="height: 100lvh;"
         class="
-          w-full h-screen 
-          overflow-x-hidden overflow-y-visible
-          fixed -z-10
-          transition duration-500"
+          fixed w-full h-screen 
+          transition duration-300 
+          -z-10"
       >
-        {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "w-full h-full object-cover object-center blur-sm scale-110" %}
-        {% svg "tylercampbell", "absolute left-0 top-0 w-full h-[75vh] fill-rose-700/25" %}
-        {% svg "tylercampbell", "absolute left-0 top-0 w-full h-[75vh] fill-transparent stroke-2 stroke-white scale-[0.97]" %}
+        {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", 
+          "fixed w-full h-full object-cover blur scale-110",
+          "height: 100lvh;"
+        %}
+        {% svg "tylercampbell", 
+          "absolute left-0 top-0 w-full h-[75vh] fill-rose-700/25 transition duration-300" 
+        %}
+        {% svg "tylercampbell", 
+          "absolute left-0 top-0 w-full h-[75vh] fill-transparent stroke-2 stroke-white scale-[0.97] transition duration-300" 
+        %}
       </header>
 
       <div id="spacer" style="height: 85svh;" class="h-[85vh] w-full snap-center"></div>
@@ -59,7 +64,7 @@ color: 'rgb(51 65 85)'
         >
           {% picture "gallery/"+image.src, image.name, 
             "w-auto h-auto max-h-[80vh] max-w-[80vw]
-            border-[16px] border-orange-100 ring-8 ring-slate-900",
+            border-[16px] border-orange-100 ring-8 ring-stone-900",
             "max-height: 80svh;"
           %}
         </article>
@@ -68,7 +73,16 @@ color: 'rgb(51 65 85)'
     </main>
 
     <script>
-      {% include 'scrollytelling.js' %}
+      sm.addEventListener('load', function () {
+        // init controller
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 0}});
+
+        // build scenes
+        new ScrollMagic.Scene({triggerElement: "#gallery"})
+          // .addIndicators() // add indicators (requires plugin)
+          .setClassToggle("header", "opacity-30") // add class toggle
+        .addTo(controller);
+      });
     </script>
 
   </body>
