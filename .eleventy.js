@@ -2,6 +2,7 @@
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const metagen = require('eleventy-plugin-metagen');
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
+const svgSprite = require("eleventy-plugin-svg-sprite");
 const htmlmin = require("html-minifier");
 const CleanCSS = require("clean-css");
 const postCss = require("postcss");
@@ -13,11 +14,11 @@ const Image = require("@11ty/eleventy-img");
 const path = require("path");
 
 // Picture Shortcode
-function pictureShortcode(src, alt, classes, style, sizes = "100vw", loading = "eager", decoding = "sync") {
-  let url = `./src/_includes/${src}`;
+function pictureShortcode(src, alt, classes = "", style = "", sizes = "100vw", loading = "lazy", decoding = "async") {
+  let url = `./src/_includes/images/${src}`;
   let options = {
-    widths: [660, 1280, 1920, 2560],
-    formats: ["svg", "avif", "webp", "jpeg"],
+    widths: [660, 1920],
+    formats: ["avif", "webp", "jpeg"],
     urlPath: "/img/opt/",
     outputDir: "./docs/img/opt/",
   };
@@ -43,6 +44,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/_includes/styles.css');
 
   // passthrough files
+  eleventyConfig.setServerPassthroughCopyBehavior("copy");
+  eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js' : './ScrollMagic.min.js'});
+  eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js' : './debug.addIndicators.min.js'});
   eleventyConfig.addPassthroughCopy({'./src/static' : './'});
 
   // add plugins
@@ -56,6 +60,9 @@ module.exports = function(eleventyConfig) {
     sitemap: {
       hostname: "https://www.tyler.camp",
     },
+  });
+  eleventyConfig.addPlugin(svgSprite, {
+    path: "./src/_includes/svg/",
   });
 
   // add shortcodes

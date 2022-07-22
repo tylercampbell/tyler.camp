@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/index.njk',
+    './src/index.njk'
+  ],
+  safelist: [
+    'scrolled',
   ]
 }
