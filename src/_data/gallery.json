@@ -1,34 +1,10 @@
 [
   {
-    "name": "Image A",
-    "src": "a.jpeg"
+    "name": "sketch book",
+    "src": "00.jpeg"
   },
   {
-    "name": "Image B",
-    "src": "b.jpeg"
-  },
-  {
-    "name": "Image C",
-    "src": "c.jpeg"
-  },
-  {
-    "name": "Image D",
-    "src": "d.jpeg"
-  },
-  {
-    "name": "Image A",
-    "src": "a.jpeg"
-  },
-  {
-    "name": "Image B",
-    "src": "b.jpeg"
-  },
-  {
-    "name": "Image C",
-    "src": "c.jpeg"
-  },
-  {
-    "name": "Image D",
-    "src": "d.jpeg"
+    "name": "self portrait 1a",
+    "src": "01.jpeg"
   }
 ]

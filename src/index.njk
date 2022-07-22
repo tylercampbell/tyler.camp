@@ -1,8 +1,8 @@
 ---
-color: 'hsl(254, 4%, 35%)'
+bgcolor: 'hsl(0, 0%, 27%)' 
 ---
 <!doctype html>
-<html lang="en" class="snap-y snap-mandatory bg-stone-700">
+<html lang="en" class="snap-y snap-mandatory">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, viewport-fit=cover" />
@@ -17,7 +17,7 @@ color: 'hsl(254, 4%, 35%)'
       twitter_handle="tylerscramble",
       generator="eleventy"
     %}
-    <meta name="theme-color" content="{{color}}">
+    <meta name="theme-color" content="{{bgcolor}}">
     <style>
       {% set css %}
         {% include "styles.css" %}
@@ -28,35 +28,35 @@ color: 'hsl(254, 4%, 35%)'
     {# <script src="./debug.addIndicators.min.js"></script> #}
   </head>
 
-    <body>
-      {% svgsprite %}
+  <body style="background-color: {{bgcolor}}">
+    {% svgsprite %}
 
-      <header
-        style="height: 100lvh;"
-        class="
-          fixed w-full h-screen 
-          transition duration-300 
-          -z-10"
-      >
-        {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", 
-          "fixed w-full h-full object-cover blur scale-110",
-          "height: 100lvh;"
-        %}
-        {% svg "tylercampbell", 
-          "absolute left-0 top-0 w-full h-[75vh] fill-rose-700/25 transition duration-300" 
-        %}
-        {% svg "tylercampbell", 
-          "absolute left-0 top-0 w-full h-[75vh] fill-transparent stroke-2 stroke-white scale-[0.97] transition duration-300" 
-        %}
-      </header>
+    <header
+      style="height: 100lvh;"
+      class="
+        fixed w-full h-screen 
+        transition duration-300 
+        -z-10"
+    >
+      {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", 
+        "fixed w-full h-full object-cover blur scale-110 transition duration-500",
+        "height: 100lvh;"
+      %}
+      {% svg "tylercampbell", 
+        "absolute left-0 top-0 w-full h-[75vh] fill-rose-700/25 transition duration-300" 
+      %}
+      {% svg "tylercampbell", 
+        "absolute left-0 top-0 w-full h-[75vh] fill-transparent stroke-2 stroke-white scale-[0.97] transition duration-300" 
+      %}
+    </header>
 
-      <div id="spacer" style="height: 85svh;" class="h-[85vh] w-full snap-center"></div>
+    <div style="height: 85svh;" class="h-[85vh] w-full snap-center"></div>
 
-    <main id="gallery">
+    <main id="gallery" class="mb-[33vh]">
       {% for image in gallery %}
 
         <article 
-          id="picture{{ loop.index }}"
+          id="{{ loop.index }}"
           class="
             snap-center
             py-8
@@ -64,7 +64,7 @@ color: 'hsl(254, 4%, 35%)'
         >
           {% picture "gallery/"+image.src, image.name, 
             "w-auto h-auto max-h-[80vh] max-w-[80vw]
-            border-[16px] border-orange-100 ring-8 ring-stone-900",
+            border-8 border-orange-100 ring-8 ring-stone-900",
             "max-height: 80svh;"
           %}
         </article>
@@ -76,11 +76,10 @@ color: 'hsl(254, 4%, 35%)'
       sm.addEventListener('load', function () {
         // init controller
         var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 0}});
-
         // build scenes
         new ScrollMagic.Scene({triggerElement: "#gallery"})
           // .addIndicators() // add indicators (requires plugin)
-          .setClassToggle("header", "opacity-30") // add class toggle
+          .setClassToggle("header", "scrolled")
         .addTo(controller);
       });
     </script>

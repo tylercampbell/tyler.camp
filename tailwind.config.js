@@ -4,6 +4,6 @@ module.exports = {
     './src/index.njk'
   ],
   safelist: [
-    'opacity-30'
+    'scrolled',
   ]
 }

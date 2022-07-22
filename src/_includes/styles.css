@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .scrolled svg {
+    @apply translate-y-16 opacity-0;
+  }
+  .scrolled picture {
+    @apply brightness-50;
+  }
+}
