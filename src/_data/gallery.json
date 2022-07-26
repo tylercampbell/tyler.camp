@@ -1,10 +1,294 @@
 [
   {
-    "name": "sketch book",
-    "src": "00.jpeg"
+    "name": "sketchbook",
+    "src": "001.jpeg"
   },
   {
-    "name": "self portrait 1a",
-    "src": "01.jpeg"
+    "name": "password",
+    "src": "002.jpeg"
+  },
+  {
+    "name": "unknown figure",
+    "src": "003.jpeg"
+  },
+  {
+    "name": "unknown figure",
+    "src": "004.jpeg"
+    },
+  {
+    "name": "self portrait",
+    "src": "005.jpeg"
+  },
+  {
+    "name": "tyler skateboarding",
+    "src": "006a.jpg"
+  },
+  {
+    "name": "magnor cover",
+    "src": "006.jpeg"
+  },
+  {
+    "name": "magnor vs slug",
+    "src": "007.jpeg"
+  },
+  {
+    "name": "magnor's sidekicks",
+    "src": "008.jpeg"
+  },
+  {
+    "name": "tyler with wwf magazine",
+    "src": "008a.jpg"
+  },
+  {
+    "name": "dirtbike jumping over monster",
+    "src": "009.jpeg"
+  },
+  {
+    "name": "bmx jumps tyler built",
+    "src": "010.jpeg"
+  },
+  {
+    "name": "tyler riding dirtbike",
+    "src": "010a.jpg"
+  },
+  {
+    "name": "dirtbike track in the woods",
+    "src": "011.jpeg"
+  },
+  {
+    "name": "plan 1 for dirtbike track in the woods",
+    "src": "012.jpeg"
+  },
+  {
+    "name": "plan 2 for dirtbike track in the woods",
+    "src": "013.jpeg"
+  },
+  {
+    "name": "plan 3 for dirtbike track in the woods",
+    "src": "014.jpeg"
+  },
+  {
+    "name": "plan 4 for dirtbike track in the woods",
+    "src": "015.jpeg"
+  },
+  {
+    "name": "plan 5 for dirtbike track in the woods",
+    "src": "016.jpeg"
+  },
+  {
+    "name": "tyler wearing grave digger shirt with kelsey",
+    "src": "017a.jpeg"
+  },
+  {
+    "name": "monster truck",
+    "src": "017.jpeg"
+  },
+  {
+    "name": "evel knievel",
+    "src": "018.jpeg"
+  },
+  {
+    "name": "matt hoffman",
+    "src": "019.jpeg"
+  },
+  {
+    "name": "tyler in mario shirt",
+    "src": "20a.jpeg"
+  },
+  {
+    "name": "game level design 1",
+    "src": "020.jpeg"
+  },
+  {
+    "name": "game level design 2",
+    "src": "020.jpeg"
+  },
+  {
+    "name": "game level design 3",
+    "src": "022.jpeg"
+  },
+  {
+    "name": "h.o.g. pig",
+    "src": "023.jpeg"
+  },
+  {
+    "name": "t.c.",
+    "src": "024.jpeg"
+  },
+  {
+    "name": "tyler in loonies blunt shirt for first day of school",
+    "src": "025a.jpg"
+  },
+  {
+    "name": "comic page, OC",
+    "src": "025.jpeg"
+  },
+  {
+    "name": "comic book characters, OC",
+    "src": "026.jpeg"
+  },
+  {
+    "name": "fighting game characters, OC",
+    "src": "027.jpeg"
+  },
+  {
+    "name": "comic book character, OC",
+    "src": "028.jpeg"
+  },
+  {
+    "name": "alien attack",
+    "src": "029.jpeg"
+  },
+  {
+    "name": "comic book character, OC",
+    "src": "030.jpeg"
+  },
+  {
+    "name": "comic book character, OC",
+    "src": "031.jpeg"
+  },
+  {
+    "name": "comic book character, OC",
+    "src": "032.jpeg"
+  },
+  {
+    "name": "comic book charactes, OC",
+    "src": "033.jpeg"
+  },
+  {
+    "name": "comic book character, OC",
+    "src": "034.jpeg"
+  },
+  {
+    "name": "comic book character, OC",
+    "src": "035.jpeg"
+  },
+  {
+    "name": "mortal kombat characters",
+    "src": "036.jpeg"
+  },
+  {
+    "name": "beavis & butthead",
+    "src": "037.jpeg"
+  },
+  {
+    "name": "ren & stimpy",
+    "src": "038.jpeg"
+  },
+  {
+    "name": "powdered toast man",
+    "src": "038a.jpeg"
+  },
+  {
+    "name": "grandparents' anniversary",
+    "src": "038b.jpeg"
+  },
+  {
+    "name": "spider-man and beast",
+    "src": "039.jpeg"
+  },
+  {
+    "name": "daredevil",
+    "src": "039a.jpeg"
+  },
+  {
+    "name": "shrunken hulk with rat",
+    "src": "040.jpeg"
+  },
+  {
+    "name": "x-men concept",
+    "src": "041.jpeg"
+  },
+  {
+    "name": "nightcrawler",
+    "src": "042.jpeg"
+  },
+  {
+    "name": "wolverine",
+    "src": "043.jpeg"
+  },
+  {
+    "name": "apocalypse",
+    "src": "044.jpeg"
+  },
+  {
+    "name": "spider-man & juggernaut",
+    "src": "045.jpeg"
+  },
+  {
+    "name": "spider-man & juggernaut",
+    "src": "046.jpeg"
+  },
+  {
+    "name": "grandparents' farm house",
+    "src": "046b.jpg"
+  },
+  {
+    "name": "group of peppers",
+    "src": "047.jpeg"
+  },
+  {
+    "name": "two peppers",
+    "src": "048.jpeg"
+  },
+  {
+    "name": "campus",
+    "src": "049.jpeg"
+  },
+  {
+    "name": "charcoal figure drawing",
+    "src": "050.jpeg"
+  },
+  {
+    "name": "charcoal figure drawing",
+    "src": "051.jpeg"
+  },
+  {
+    "name": "wood cut still life",
+    "src": "052.jpeg"
+  },
+  {
+    "name": "wood cut still life",
+    "src": "053.jpeg"
+  },
+  {
+    "name": "etching",
+    "src": "054.jpeg"
+  },
+  {
+    "name": "wood cut figure",
+    "src": "055.jpeg"
+  },
+  {
+    "name": "uncle mitch and uncle burt, charcoal",
+    "src": "056.jpeg"
+  },
+  {
+    "name": "uncle mitch and uncle burt, pen",
+    "src": "057.jpeg"
+  },
+  {
+    "name": "mitch",
+    "src": "058.jpeg"
+  },
+  {
+    "name": "mitch",
+    "src": "059.jpeg"
+  },
+  {
+    "name": "gun robot 1",
+    "src": "060.jpeg"
+  },
+  {
+    "name": "gun robot 2",
+    "src": "061.jpeg"
+  },
+  {
+    "name": "mma fighter",
+    "src": "062.jpeg"
+  },
+  {
+    "name": "neil hamburger",
+    "src": "063.jpeg"
   }
 ]
