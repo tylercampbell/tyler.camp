@@ -1,7 +1,7 @@
 {
   "scripts": {
     "clean": "rimraf docs",
-    "dev:eleventy": "npx eleventy --serve",
+    "dev:eleventy": "npx eleventy --serve --incremental",
     "build:eleventy": "ELEVENTY_PRODUCTION=true eleventy",
     "dev": "run-p dev:*",
     "build": "NODE_ENV=production run-s clean build:*"
