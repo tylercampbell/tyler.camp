@@ -2,7 +2,6 @@
 bgcolor: '#1c1917' 
 ---
 <!doctype html>
-{# <html lang="en" class="snap-y snap-mandatory">  #}
 <html lang="en"> 
   <head>
     <meta charset="utf-8" />
@@ -26,7 +25,6 @@ bgcolor: '#1c1917'
       {{css | postcss | safe}}
     </style>
     <script defer id="sm" src="./ScrollMagic.min.js"></script>
-    {# <script src="./debug.addIndicators.min.js"></script> #}
   </head>
 
   <body style="background-color: {{bgcolor}}">
@@ -55,7 +53,6 @@ bgcolor: '#1c1917'
 
     <main id="gallery" class="mb-[33vh]">
       {% for image in gallery %}
-
         <article 
           id="{{ loop.index }}"
           class="
@@ -69,7 +66,6 @@ bgcolor: '#1c1917'
             "max-height: 80svh;"
           %}
         </article>
-
       {% endfor %}
     </main>
 
@@ -78,8 +74,7 @@ bgcolor: '#1c1917'
         // init controller
         var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 0}});
         // build scenes
-        new ScrollMagic.Scene({triggerElement: "#gallery"})
-          // .addIndicators() // add indicators (requires plugin)
+        new ScrollMagic.Scene({triggerElement: "#gallery",triggerHook: 0.65})
           .setClassToggle("header", "scrolled")
         .addTo(controller);
       });
