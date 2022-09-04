@@ -6,69 +6,45 @@ bgcolor: '#de606b'
 {# {% svg "tylercampbell" %} #}
 {# {% picture "ty-memoji-v1.jpg", "tyler's memoji", "w-48 h-auto" %} #}
 
-<div
-  class="
-    my-4 mx-auto
-    p-4 max-w-sm
-    bg-blue-200
-    font-mono
-  ">
 
-  <form class="my-form flex flex-col gap-y-2" name="my-form" netlify-honeypot="hpfield" data-netlify="true">
-    <input class="hidden" name="hpfield">
-  
-    <label for="comments" class="font-extrabold text-blue-500 text-2xl">Lemme know</label>
-  
-    <textarea name="comments" id="comments" placeholder="Your comments" class="w-full h-40 text-base"></textarea>
-  
-    <input type="submit"
-      class="
-      w-min place-self-end
-      mt-2
-      cursor-pointer
-      py-2 px-3
-      bg-blue-600 text-white uppercase text-sm tracking-widest
-      ">
-  </form>
 
-  <div class="result post-sent text-emerald-600 font-bold" style="display: none">
-    <h3>Success!</h3>
-  </div>
+<div id="contact" class="my-4 mx-auto p-4 max-w-sm bg-blue-200 font-mono">
 
-  <div class="result post-error text-red-600 font-bold" style="display: none">
-    <h3>Error :(</h3>
-  </div>
+    <form name="contact" method="POST" action="/#contact" data-netlify="true" class="my-form flex flex-col gap-y-2">
+      {# <label>Your Name: <input type="text" name="name"/></label> #}
+      {# <label>Your Email: <input type="email" name="email"/></label> #}
+      <label for="comments" class="font-extrabold text-blue-500 text-2xl">Lemme know</label>
+      <textarea name="message" placeholder="Your comments" class="w-full h-40 text-base"></textarea>
+      <button type="submit" class="w-min place-self-end mt-2 cursor-pointer py-2 px-3 bg-blue-600 text-white uppercase text-sm tracking-widest">Send</button>
+    </form>
+
+    <div id="success" class="hidden text-emerald-600 font-bold">Success!</div>
 
 </div>
 
 
-<script type="module">
-  function sendFormData() {
+<script>
+  let testForm = document.querySelector("#contact form");
+  let success = document.querySelector("#success");
+  
+  testForm.addEventListener('submit', e => {
+    e.preventDefault();
 
-    function sendData() {
-      var XHR = new XMLHttpRequest()
-      var FD = new FormData(form)
-      XHR.addEventListener('load', function(event) {
-        form.classList.add('hidden')
-        var success = document.querySelectorAll('.post-sent')[0]
-        success.classList.add('block')
-      })
-      XHR.addEventListener('error', function(event) {
-        form.classList.add('hidden')
-        var error = document.querySelectorAll('.post-error')[0]
-        error.classList.add('block')
-      })
-      XHR.open('POST', '#')
-      XHR.send(FD)
-    }
-
-    var form = document.querySelectorAll('.my-form')[0]
-    form.addEventListener('submit', function (e) {
-      e.preventDefault()
-      sendData()
+    const formData = new FormData(testForm);
+    fetch(testForm.getAttribute('action'), {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: new URLSearchParams(formData).toString()
     })
+    .then(res => {
+      if (res) {
+        testForm.classList.replace('flex', 'hidden')
+        success.classList.replace('hidden', 'block')
+      }
+    });
+  });
 
-  }
-
-  export default sendFormData
 </script>
