@@ -18,6 +18,8 @@
     
     "html-minifier": "^4.0.0",
 
-    "scrollmagic": "^2.0.8"
+    "scrollmagic": "^2.0.8",
+
+    "netlify-plugin-cache": "^1.0.3"
   }
 }
