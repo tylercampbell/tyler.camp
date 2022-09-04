@@ -4,9 +4,11 @@ bgcolor: '#1c1917'
 <!doctype html>
 <html lang="en"> 
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
-    {% favicons './src/_includes/icons8-face_vomiting.svg' %}
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
     {% metagen
       title="Tyler Campbell",
       name="Tyler Campbell",
@@ -17,6 +19,7 @@ bgcolor: '#1c1917'
       twitter_handle="tylerscramble",
       generator="eleventy"
     %}
+
     <meta name="theme-color" content="{{bgcolor}}">
     <style>
       {% set css %}

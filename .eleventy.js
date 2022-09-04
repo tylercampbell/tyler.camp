@@ -1,5 +1,4 @@
   // Plugin Imports
-const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const metagen = require('eleventy-plugin-metagen');
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const svgSprite = require("eleventy-plugin-svg-sprite");
@@ -51,11 +50,6 @@ module.exports = function(eleventyConfig) {
 
   // add plugins
   eleventyConfig.addPlugin(metagen);
-  eleventyConfig.addPlugin(faviconsPlugin, {
-    'outputDir': './docs',
-    'manifestData': {'name': 'Tyler Campbell'},
-    'generateManifest': false
-  });
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
       hostname: "https://www.tyler.camp",

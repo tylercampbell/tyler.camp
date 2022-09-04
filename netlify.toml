@@ -1,0 +1,31 @@
+[build]
+  #ignore = "node ignore_build.js"
+  publish = "docs"
+  command = "npm run build"
+
+[build.environment]
+  NPM_FLAGS = "--force"
+
+# POST BUILD OPTIMIZATIONS
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true # disable for css backdrop filter bugfix https://github.com/tailwindlabs/tailwindcss/discussions/7044
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = false
+[build.processing.images]
+  compress = false
+
+
+# NETLIFY PLUGINS
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs]
+    paths = [
+      "docs/img/opt", # Eleventy-Image Disk Cache
+      ".cache" # Remote Asset Cache (not used currently)
+    ]
