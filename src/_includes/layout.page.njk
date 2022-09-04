@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"> 
+  <head>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    {% metagen
+      title="Tyler Campbell",
+      name="Tyler Campbell",
+      desc="Tyler Campbell is a Creative Director in the beautiful state of Georgia.",
+      url="https://www.tyler.camp",
+      img="https://www.tyler.camp/ty-memoji-v1.jpg",
+      img_alt="Tyler Campbell",
+      twitter_handle="tylerscramble",
+      generator="eleventy"
+    %}
+
+    <meta name="theme-color" content="{{bgcolor}}">
+    <style>
+      {% set css %}
+        {% include "styles.css" %}
+      {% endset %}
+      {{css | postcss | safe}}
+    </style>
+    <script defer id="sm" src="./ScrollMagic.min.js"></script>
+  </head>
+
+  <body style="background-color: {{bgcolor}}">
+    {{ content | safe }}
+  </body>
+</html>
