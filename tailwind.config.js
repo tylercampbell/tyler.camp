@@ -5,5 +5,8 @@ module.exports = {
   ],
   safelist: [
     'scrolled',
+  ],
+  plugins: [
+    require('@tailwindcss/forms'),
   ]
 }

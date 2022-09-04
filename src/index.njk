@@ -2,29 +2,45 @@
 layout: layout.page.njk
 bgcolor: '#de606b'
 ---
-{% svgsprite %}
-Hello
+{# {% svgsprite %} #}
+{# {% svg "tylercampbell" %} #}
+{# {% picture "ty-memoji-v1.jpg", "tyler's memoji", "w-48 h-auto" %} #}
 
-{% svg "tylercampbell" %}
+<div
+  class="
+    my-4 mx-auto
+    p-4 max-w-sm
+    bg-blue-200
+    font-mono
+  ">
 
-{% picture "ty-memoji-v1.jpg", "tyler's memoji", "w-48 h-auto" %}
-
-<form class="my-form" name="my-form" netlify-honeypot="hpfield" data-netlify="true">
-  <input class="hidden" name="hpfield">
-
-  <label for="comments">Comments:</label><br/>
-  <textarea name="comments" id="comments" placeholder="Your comments"></textarea>
+  <form class="my-form flex flex-col gap-y-2" name="my-form" netlify-honeypot="hpfield" data-netlify="true">
+    <input class="hidden" name="hpfield">
   
-  <input type="submit">
-</form>
+    <label for="comments" class="font-extrabold text-blue-500 text-2xl">Lemme know</label>
+  
+    <textarea name="comments" id="comments" placeholder="Your comments" class="w-full h-40 text-base"></textarea>
+  
+    <input type="submit"
+      class="
+      w-min place-self-end
+      mt-2
+      cursor-pointer
+      py-2 px-3
+      bg-blue-600 text-white uppercase text-sm tracking-widest
+      ">
+  </form>
 
-<div class="result post-sent" style="display: none;">
-  <h3>Success!</h3>
+  <div class="result post-sent text-emerald-600 font-bold" style="display: none">
+    <h3>Success!</h3>
+  </div>
+
+  <div class="result post-error text-red-600 font-bold" style="display: none">
+    <h3>Error :(</h3>
+  </div>
+
 </div>
 
-<div class="result post-error" style="display: none;">
-  <h3>Error...</h3>
-</div>
 
 <script>
   function sendFormData() {
