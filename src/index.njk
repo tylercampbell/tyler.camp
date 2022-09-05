@@ -8,61 +8,52 @@ bgcolor: '#de606b'
 
 
 
-<div
-  id="contact"
+<div id="contact"
   class="
-    my-4 mx-auto 
-    p-4 max-w-sm 
-    bg-blue-200 
-    ring-offset-2 ring-offset-blue-300
-    ring-2 ring-blue-200
-    rounded-2xl
+    my-4 mx-auto
+    w-full max-w-md
+    p-4 rounded-2xl bg-blue-200
   ">
-
-    <form name="contact" method="POST" action="/#contact" data-netlify="true" 
+  <form name="contact" method="POST" action="/#contact" data-netlify="true" class="flex flex-col gap-y-2">
+    <label for="message" class="mt-2 font-bold text-2xl text-blue-400">Lemme know</label>
+    <textarea 
+      name="message"
+      placeholder="Your thoughts" 
+      rows="5"
       class="
-        flex flex-col gap-y-2
-      ">
-      <label for="message" class="mt-2 font-bold text-2xl text-blue-400">Lemme know</label>
-      <textarea 
-        name="message"
-        placeholder="Your thoughts" 
-        rows="5"
-        class="
-          rounded-md
-          text-base font-mono
-          placeholder-slate-400 text-slate-700
-          bg-blue-50 focus:bg-yellow-50
-          border-2 border-transparent hover:border-blue-300 focus:border-blue-500
-          focus:ring-0
-        "></textarea>
-      <button 
-        type="submit" 
-        class="
-          w-min place-self-end
-          mt-2
-          cursor-pointer
-          py-2 px-3 
-          rounded-md bg-blue-600 hover:bg-blue-800
-          text-xs text-blue-50 hover:text-white font-bold tracking-wider uppercase
-        ">Submit</button>
-    </form>
-
-    <div
-      id="success"
+        rounded-md
+        text-base font-mono
+        placeholder-slate-400 text-slate-700
+        bg-blue-50 focus:bg-yellow-50
+        border-2 border-transparent hover:border-blue-300 focus:border-blue-500
+        focus:ring-0
+      "></textarea>
+    <button
+      type="submit" 
       class="
-        hidden 
-        text-xl font-sans font-bold text-emerald-600
-      ">
-      Hey thanks 👍
-    </div>
+        w-min place-self-end
+        mt-2
+        cursor-pointer
+        py-2 px-3 
+        rounded-md bg-blue-600 hover:bg-blue-800
+        text-xs text-blue-50 hover:text-white font-bold tracking-wider uppercase
+      ">Submit</button>
+  </form>
 
+  <div id="success"
+    class="
+      hidden
+      text-xl font-sans font-bold text-blue-500
+    ">
+    <span class="text-2xl rounded-full bg-blue-50 py-2 px-2.5 mr-2">👍</span> Hey thanks!
+  </div>
 </div>
+
 
 
 <script>
   let myForm = document.querySelector("#contact form");
-  let success = document.querySelector("#success");
+  let success = document.querySelector('#success');
   
   myForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -83,5 +74,4 @@ bgcolor: '#de606b'
       }
     });
   });
-
 </script>

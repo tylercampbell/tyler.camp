@@ -17,7 +17,7 @@ function pictureShortcode(src, alt, classes = "", style = "", sizes = "100vw", l
   let url = `./src/assets/images/${src}`;
   let options = {
     widths: [660, 1920],
-    formats: ["avif", "webp", "jpeg"],
+    formats: ["webp"],
     urlPath: "/img/opt/",
     outputDir: "./_dist/img/opt/",
   };
@@ -44,8 +44,7 @@ module.exports = function(eleventyConfig) {
 
   // passthrough files
   // eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js' : './ScrollMagic.min.js'});
-  // eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js' : './debug.addIndicators.min.js'});
-  // eleventyConfig.setServerPassthroughCopyBehavior("copy");
+  eleventyConfig.setServerPassthroughCopyBehavior("copy");
   eleventyConfig.addPassthroughCopy({'./src/static' : './'});
 
   // add plugins
