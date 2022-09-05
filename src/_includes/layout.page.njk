@@ -17,18 +17,18 @@
       generator="eleventy"
     %}
 
-    <meta name="theme-color" content="{{bgcolor}}">
+    <meta name="theme-color" content="{{ bgcolor }}">
     <style>
       {% set css %}
-        {% include "styles.css" %}
+        {% include 'styles.css' %}
       {% endset %}
-      {{css | postcss | safe}}
+      {{ css | postcss | safe }}
     </style>
 
-    <script defer id="sm" src="./ScrollMagic.min.js"></script>
+    {# <script defer id="sm" src="./ScrollMagic.min.js"></script> #}
   </head>
 
-  <body style="background-color: {{bgcolor}}">
+  <body style="background-color: {{ bgcolor }}">
     {{ content | safe }}
   </body>
 </html>
