@@ -1,64 +1,48 @@
 ---
 layout: layout.page.njk
-bgcolor: '#de606b'
+bgcolor: '#1c1917' 
 ---
-{# {% svgsprite %} #}
-{# {% svg "tylercampbell" %} #}
-{# {% picture "ty-memoji-v1.jpg", "tyler's memoji", "w-48 h-auto" %} #}
 
+{% svgsprite %}
 
+<header style="height: 100lvh;" class="fixed w-full h-screen transition duration-300 -z-10">
+  {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "fixed w-full h-full object-cover blur scale-110 transition duration-500", "height: 100lvh;" %}
+  {% svg "tylercampbell", "absolute left-0 top-0 w-full h-[75vh] fill-rose-700/25 transition duration-300" %}
+  {% svg "tylercampbell", "absolute left-0 top-0 w-full h-[75vh] fill-transparent stroke-2 stroke-white scale-[0.97] transition duration-300" %}
+</header>
 
-<div id="contact"
-  class="
-    my-4 mx-auto
-    w-full max-w-md
-    p-4 rounded-2xl bg-blue-200
-  ">
-  <form name="contact" method="POST" action="/#contact" data-netlify="true" class="flex flex-col gap-y-2">
-    <label for="message" class="mt-2 font-bold text-2xl text-blue-400">Lemme know</label>
-    <textarea 
-      name="message"
-      placeholder="Your thoughts" 
-      rows="5"
-      onkeyup="btnActivation()"
-      class="
-        rounded-md
-        text-base font-mono
-        placeholder-slate-400 text-slate-700
-        bg-blue-50 focus:bg-yellow-50
-        border-2 border-transparent hover:border-blue-300 focus:border-blue-500
-        focus:ring-0
-      "></textarea>
-    <button
-      disabled
-      type="submit" 
-      class="
-        w-min place-self-end
-        mt-2
-        py-2 px-3 
-        text-xs text-blue-50 hover:text-white font-bold tracking-wider uppercase
-        enabled:cursor-pointer disabled:cursor-not-allowed
-        rounded-md enabled:bg-blue-600 enabled:hover:bg-blue-800 disabled:bg-blue-300
-      ">Submit</button>
-  </form>
-
-  <div id="success"
-    class="
-      hidden
-      text-xl font-sans font-bold text-blue-500
-    ">
-    <span class="text-2xl rounded-full bg-blue-50 py-2 px-2.5 mr-2">👍</span> Hey thanks!
-  </div>
+<div style="height: 85svh;" class="h-[85vh] w-full snap-center grid place-items-center">
+  <section class="w-full px-2">
+    <h1 class="text-center font-mono uppercase mb-8">Tyler Campbell, the website</h1>
+    {% include 'form.njk' %}
+  </section>
 </div>
 
-
+<main id="gallery" class="mb-[33vh]">
+  {% for image in gallery %}
+    <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center">
+      {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-900", "max-height: 80svh;" %}
+    </article>
+  {% endfor %}
+</main>
 
 <script>
+  //scrollmagic
+  sm.addEventListener('load', function () {
+    // init controller
+    var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 0}});
+    // build scenes
+    new ScrollMagic.Scene({triggerElement: "#gallery",triggerHook: 0.65})
+      .setClassToggle("header", "scrolled")
+    .addTo(controller);
+  });
+
+  // form
   let myForm = document.querySelector('#contact form');
   let message = document.querySelector('#contact form textarea');
   let submit = document.querySelector('#contact form button');
   let success = document.querySelector('#success');
-
+  // form - disable submit button if textarea empty
   function btnActivation(){
     if (!message.value.length) {
       submit.disabled = true;            
@@ -66,11 +50,9 @@ bgcolor: '#de606b'
       submit.disabled = false;
     }           
   }
-
-  
+  // form - ajax
   myForm.addEventListener('submit', e => {
     e.preventDefault();
-
     const formData = new FormData(myForm);
     fetch(myForm.getAttribute('action'), {
       method: 'POST',
