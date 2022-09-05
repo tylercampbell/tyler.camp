@@ -14,12 +14,12 @@ const path = require("path");
 
 // Picture Shortcode
 function pictureShortcode(src, alt, classes = "", style = "", sizes = "100vw", loading = "lazy", decoding = "async") {
-  let url = `./src/_includes/images/${src}`;
+  let url = `./src/assets/images/${src}`;
   let options = {
     widths: [660, 1920],
-    formats: ["avif", "webp", "jpeg"],
+    formats: ["webp"],
     urlPath: "/img/opt/",
-    outputDir: "./docs/img/opt/",
+    outputDir: "./_dist/img/opt/",
   };
   Image(url, options);
   let imageAttributes = {
@@ -43,9 +43,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/_includes/styles.css');
 
   // passthrough files
-  eleventyConfig.setServerPassthroughCopyBehavior("copy");
   eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js' : './ScrollMagic.min.js'});
-  eleventyConfig.addPassthroughCopy({'./node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js' : './debug.addIndicators.min.js'});
+  eleventyConfig.setServerPassthroughCopyBehavior("copy");
   eleventyConfig.addPassthroughCopy({'./src/static' : './'});
 
   // add plugins
@@ -56,7 +55,7 @@ module.exports = function(eleventyConfig) {
     },
   });
   eleventyConfig.addPlugin(svgSprite, {
-    path: "./src/_includes/svg/",
+    path: "./src/assets/svg/",
   });
 
   // add shortcodes
@@ -99,7 +98,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: 'src',
-      output: 'docs'
+      output: '_dist'
     }
   };
 };

@@ -1,0 +1,91 @@
+---
+layout: layout.page.njk
+bgcolor: '#de606b'
+---
+{# {% svgsprite %} #}
+{# {% svg "tylercampbell" %} #}
+{# {% picture "ty-memoji-v1.jpg", "tyler's memoji", "w-48 h-auto" %} #}
+
+
+
+<div id="contact"
+  class="
+    my-4 mx-auto
+    w-full max-w-md
+    p-4 rounded-2xl bg-blue-200
+  ">
+  <form name="contact" method="POST" action="/#contact" data-netlify="true" class="flex flex-col gap-y-2">
+    <label for="message" class="mt-2 font-bold text-2xl text-blue-400">Lemme know</label>
+    <textarea 
+      name="message"
+      placeholder="Your thoughts" 
+      rows="5"
+      onkeyup="btnActivation()"
+      class="
+        rounded-md
+        text-base font-mono
+        placeholder-slate-400 text-slate-700
+        bg-blue-50 focus:bg-yellow-50
+        border-2 border-transparent hover:border-blue-300 focus:border-blue-500
+        focus:ring-0
+      "></textarea>
+    <button
+      disabled
+      type="submit" 
+      class="
+        w-min place-self-end
+        mt-2
+        py-2 px-3 
+        text-xs text-blue-50 hover:text-white font-bold tracking-wider uppercase
+        enabled:cursor-pointer disabled:cursor-not-allowed
+        rounded-md enabled:bg-blue-600 enabled:hover:bg-blue-800 disabled:bg-blue-300
+      ">Submit</button>
+  </form>
+
+  <div id="success"
+    class="
+      hidden
+      text-xl font-sans font-bold text-blue-500
+    ">
+    <span class="text-2xl rounded-full bg-blue-50 py-2 px-2.5 mr-2">👍</span> Hey thanks!
+  </div>
+</div>
+
+
+
+<script>
+  let myForm = document.querySelector('#contact form');
+  let message = document.querySelector('#contact form textarea');
+  let submit = document.querySelector('#contact form button');
+  let success = document.querySelector('#success');
+
+  function btnActivation(){
+    if (!message.value.length) {
+      submit.disabled = true;            
+    } else {
+      submit.disabled = false;
+    }           
+  }
+
+  
+  myForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData(myForm);
+    fetch(myForm.getAttribute('action'), {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(res => {
+      if (res) {
+        myForm.classList.add('hidden')
+        success.classList.replace('hidden', 'block')
+      }
+    });
+  });
+
+</script>
