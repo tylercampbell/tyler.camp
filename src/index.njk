@@ -20,6 +20,7 @@ bgcolor: '#de606b'
       name="message"
       placeholder="Your thoughts" 
       rows="5"
+      onkeyup="btnActivation()"
       class="
         rounded-md
         text-base font-mono
@@ -29,14 +30,15 @@ bgcolor: '#de606b'
         focus:ring-0
       "></textarea>
     <button
+      disabled
       type="submit" 
       class="
         w-min place-self-end
         mt-2
-        cursor-pointer
         py-2 px-3 
-        rounded-md bg-blue-600 hover:bg-blue-800
         text-xs text-blue-50 hover:text-white font-bold tracking-wider uppercase
+        enabled:cursor-pointer disabled:cursor-not-allowed
+        rounded-md enabled:bg-blue-600 enabled:hover:bg-blue-800 disabled:bg-blue-300
       ">Submit</button>
   </form>
 
@@ -52,8 +54,19 @@ bgcolor: '#de606b'
 
 
 <script>
-  let myForm = document.querySelector("#contact form");
+  let myForm = document.querySelector('#contact form');
+  let message = document.querySelector('#contact form textarea');
+  let submit = document.querySelector('#contact form button');
   let success = document.querySelector('#success');
+
+  function btnActivation(){
+    if (!message.value.length) {
+      submit.disabled = true;            
+    } else {
+      submit.disabled = false;
+    }           
+  }
+
   
   myForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -74,4 +87,5 @@ bgcolor: '#de606b'
       }
     });
   });
+
 </script>
