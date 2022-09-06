@@ -5,10 +5,25 @@ bgcolor: '#f87171'  #red-400
 
 {% svgsprite %}
 
-<main style="height: 100svh;" class="h-screen w-full grid place-content-center place-items-center gap-y-8 px-2">
-  <div class="-z-20 opacity-75 overflow-hidden rounded-full">{% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "w-36 aspect-square blur-sm" %}</div>
-  <h1 class="font-mono uppercase text-red-700">Tyler Campbell, the website</h1>
+
+<header class="px-4 md:px-0">
+  <div class="w-36 aspect-square overflow-hidden rounded-full mx-auto mt-8">
+    {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "object-cover blur-sm" %}
+  </div>
+  
+  <h1 class="my-8 font-mono uppercase text-center text-red-700">Tyler Campbell, the website</h1>
+  
   {% include 'form.njk' %}
+</header>
+
+
+
+<main class="mt-8">
+  {% for image in gallery %}
+    <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center">
+      {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-800", "max-height: 80svh;" %}
+    </article>
+  {% endfor %}
 </main>
 
 

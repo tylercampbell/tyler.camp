@@ -17,7 +17,7 @@ function pictureShortcode(src, alt, classes = "", style = "", sizes = "100vw", l
   let url = `./src/assets/images/${src}`;
   let options = {
     widths: [660, 1920],
-    formats: ["webp"],
+    formats: ["webp", "jpeg"],
     urlPath: "/img/opt/",
     outputDir: "./_dist/img/opt/",
   };
