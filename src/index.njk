@@ -6,19 +6,22 @@ bgcolor: '#f87171'  #red-400
 {% svgsprite %}
 
 
-<header class="px-4 md:px-0">
-  <div class="w-36 aspect-square overflow-hidden rounded-full mx-auto mt-8">
-    {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "object-cover blur-sm", "", "144px", "eager", "auto" %}
-  </div>
-  
-  <h1 class="my-8 font-mono uppercase text-center text-red-700">Tyler Campbell, the website</h1>
-  
+
+<div class="fixed -z-50 w-40 aspect-square rounded-full overflow-hidden mx-auto top-8 left-1/2 -translate-x-1/2">
+  {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "w-40 aspect-square blur-sm", "", "144px", "eager", "auto" %}
+</div>
+
+
+
+<header class="relative px-4 md:px-0">
+  <div class="-z-20 w-40 aspect-square rounded-full mx-auto mt-8 bg-red-400 outline outline-4 outline-red-500 grid place-items-center text-red-600 text-8xl pt-6">☺︎</div>
+  <h1 class="my-12 font-mono uppercase text-center text-red-900 bg-red-400">Tyler Campbell, the website</h1>
   {% include 'form.njk' %}
 </header>
 
 
 
-<main class="mt-8">
+<main class="mt-6 bg-red-400">
   {% for image in gallery %}
     <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center">
       {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-800", "max-height: 80svh;" %}
