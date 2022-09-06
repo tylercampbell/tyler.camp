@@ -14,7 +14,9 @@ bgcolor: '#f87171'  #red-400
 
 
 <header class="relative px-4 md:px-0">
-  <div class="-z-20 w-40 aspect-square rounded-full mx-auto mt-8 bg-red-400 outline outline-4 outline-red-600 grid place-items-center text-red-600 text-8xl pt-6">☺︎</div>
+  <div class="relative -z-20 w-40 aspect-square rounded-full mx-auto mt-8 bg-red-400 border-4 border-red-600 grid place-items-center">
+  <span class="absolute text-red-600 text-8xl translate-y-6">☺︎</span>
+  </div>
   <h1 class="my-12 font-mono uppercase text-center text-red-900 bg-red-400">Tyler Campbell, the website</h1>
   {% include 'form.njk' %}
 </header>
@@ -24,7 +26,7 @@ bgcolor: '#f87171'  #red-400
 <main class="mt-6 bg-red-400">
   {% for image in gallery %}
     <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center">
-      {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-800", "max-height: 80svh;" %}
+      {# {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-800", "max-height: 80svh;" %} #}
     </article>
   {% endfor %}
 </main>
