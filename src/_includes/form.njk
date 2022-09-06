@@ -7,17 +7,18 @@
 
   <form name="contact" method="POST" action="/#contact" data-netlify="true" class="flex flex-col gap-y-2">
 
-    <label for="message" class="text-xl text-blue-400 font-mono indent-3">Lemme know</label>
+    <label for="message" class="text-lg text-blue-700 font-mono indent-3">Lemme know&hellip;</label>
 
     <textarea 
       name="message"
-      placeholder="Your thoughts" 
+      placeholder="hey i think you did a good job! - mom"
       rows="5"
       onkeyup="btnActivation()"
       class="
         rounded-md
         text-base font-mono
-        placeholder-slate-400 text-slate-700
+        placeholder-slate-400 focus:placeholder-transparent
+        text-slate-700
         bg-blue-50 focus:bg-yellow-50
         border-2 border-transparent hover:border-blue-300 focus:border-blue-500
         focus:ring-0
