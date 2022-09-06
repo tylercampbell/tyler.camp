@@ -7,11 +7,11 @@
 
   <form name="contact" method="POST" action="/#contact" data-netlify="true" class="flex flex-col gap-y-2">
 
-    <label for="message" class="text-lg text-blue-500 font-mono indent-3">Lemme know&hellip;</label>
+    <label for="message" class="text-xl text-blue-400 font-bold indent-3">Lemme know&hellip;</label>
 
     <textarea 
       name="message"
-      placeholder="hey i think you did great! - mom"
+      placeholder="hey i think you did great! &#10;♥︎ mom"
       rows="5"
       onkeyup="btnActivation()"
       class="
@@ -31,12 +31,13 @@
         w-min place-self-end
         mt-2
         rounded-md py-2 px-3 
-        text-xs font-bold tracking-wider uppercase
+        text-xs font-bold tracking-wider uppercase whitespace-nowrap
         disabled:cursor-not-allowed enabled:cursor-pointer 
         disabled:text-blue-300 enabled:text-white
-        disabled:bg-transparent enabled:bg-blue-600 enabled:hover:bg-blue-800 
+        disabled:bg-transparent enabled:bg-blue-500 enabled:hover:bg-blue-600
         disabled:ring-2 disabled:ring-blue-300
-      ">Submit</button>
+        enabled:shadow-md enabled:shadow-blue-800
+      ">Send ➤</button>
 
     <div class="absolute w-full h-full top-0 left-0 bg-blue-600 rounded-3xl -z-10 scale-x-[.90] translate-y-6"></div>
     <div class="absolute w-full h-full top-0 left-0 bg-blue-500 rounded-3xl -z-10 scale-x-[.93] translate-y-5"></div>
