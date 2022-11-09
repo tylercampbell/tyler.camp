@@ -8,7 +8,7 @@
 
 # POST BUILD OPTIMIZATIONS
 [build.processing]
-  skip_processing = false
+  skip_processing = true
 [build.processing.css]
   bundle = true
   minify = true # disable for css backdrop filter bugfix https://github.com/tailwindlabs/tailwindcss/discussions/7044
