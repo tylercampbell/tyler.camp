@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget('./tailwind.config.js');
   eleventyConfig.addWatchTarget('./postcss.config.js');
   eleventyConfig.addWatchTarget('./src/_includes/entry.css');
+  eleventyConfig.addWatchTarget("./_dist/styles.css");
 
   // passthrough files
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
