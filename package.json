@@ -3,8 +3,8 @@
     "dev:eleventy":   "cross-env ELEVENTY_ENV=dev  eleventy --serve --incremental",
     "build:eleventy": "cross-env ELEVENTY_ENV=prod eleventy",
 
-    "dev:postcss":   "postcss src/_includes/styles.css -o _dist/styles.css --config ./postcss.config.js -w",
-    "build:postcss": "postcss src/_includes/styles.css -o _dist/styles.css --config ./postcss.config.js",
+    "dev:postcss":   "postcss src/_includes/entry.css -o _dist/styles.css --config ./postcss.config.js -w",
+    "build:postcss": "postcss src/_includes/entry.css -o _dist/styles.css --config ./postcss.config.js",
     
     "dev":   "cross-env run-p dev:*",
     "build": "cross-env NODE_ENV=production run-s build:*"

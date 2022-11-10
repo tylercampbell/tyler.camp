@@ -10,7 +10,7 @@ module.exports = function(eleventyConfig) {
   // watch files for changes
   eleventyConfig.addWatchTarget('./tailwind.config.js');
   eleventyConfig.addWatchTarget('./postcss.config.js');
-  eleventyConfig.addWatchTarget('./src/_includes/styles.css');
+  eleventyConfig.addWatchTarget('./src/_includes/entry.css');
 
   // passthrough files
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
@@ -24,9 +24,6 @@ module.exports = function(eleventyConfig) {
     },
   });
 
-
-
-
   // minify html with html-minifier
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if( this.outputPath && this.outputPath.endsWith(".html") ) {
@@ -37,11 +34,8 @@ module.exports = function(eleventyConfig) {
       });
       return minified;
     }
-
     return content;
   });
-
-
 
   return {
     dir: {
