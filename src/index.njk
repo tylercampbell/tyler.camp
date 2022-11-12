@@ -1,119 +1,32 @@
 ---
 layout: layout.page.njk
-bgcolor: '#f87171'  #red-400
+bgcolor: '#292524' #stone-800
 ---
-{% svgsprite %}
+{% include "form.njk" %}
 
-
-
-<div class="fixed -z-50 w-40 aspect-square rounded-full overflow-hidden mx-auto top-8 left-1/2 -translate-x-1/2">
-  {% picture "ty-memoji-v1.jpg", "Tyler Campbell Memoji", "w-40 aspect-square blur-sm", "", "144px", "eager", "auto" %}
-</div>
-
-
-
-<header class="relative px-4 md:px-0">
-
-  <h1 class="fixed mt-52 -z-50 left-1/2 -translate-x-1/2 font-mono uppercase text-center text-red-900 whitespace-nowrap">Tyler Campbell, the website</h1>
-
-  <div class="relative -z-20 w-40 aspect-square rounded-full mx-auto mt-8 bg-red-400 border-4 border-red-600 grid place-items-center"><span class="absolute text-red-600 text-8xl translate-y-4">☺︎</span></div>
-
-  <aside id="contact" class="relative mt-[120px] w-full max-w-lg mx-auto p-4 rounded-2xl bg-blue-200">
-
-    <form name="contact" method="POST" action="/#contact" data-netlify="true" class="flex flex-col gap-y-2">
-
-      <label for="message" class="text-xl text-blue-400 font-serif indent-3">Lemme know&hellip;</label>
-
-      <textarea 
-        name="message"
-        placeholder="hey i think you did great! &#10;♥︎ mom"
-        rows="5"
-        onkeyup="btnActivation()"
-        class="
-          rounded-md
-          text-base font-mono
-          placeholder-slate-400 focus:placeholder-transparent
-          text-slate-700
-          bg-blue-50 focus:bg-yellow-50
-          border-2 border-transparent hover:border-blue-300 focus:border-blue-500
-          focus:ring-0
-        "></textarea>
-
-      <button
-        disabled
-        type="submit" 
-        class="
-          w-min place-self-end
-          mt-2
-          rounded-md py-2 px-2.5
-          text-xs font-bold tracking-wider uppercase whitespace-nowrap
-          disabled:cursor-not-allowed enabled:cursor-pointer 
-          disabled:text-blue-300 enabled:text-white
-          disabled:bg-transparent enabled:bg-blue-500 enabled:hover:bg-blue-600
-          disabled:ring-2 disabled:ring-blue-300
-          enabled:shadow-md enabled:shadow-blue-800
-        ">Send ➤</button>
-
-      <div class="absolute w-full h-full top-0 left-0 bg-blue-600 rounded-3xl -z-10 scale-x-[.90] translate-y-6"></div>
-      <div class="absolute w-full h-full top-0 left-0 bg-blue-500 rounded-3xl -z-10 scale-x-[.93] translate-y-5"></div>
-      <div class="absolute w-full h-full top-0 left-0 bg-blue-400 rounded-3xl -z-10 scale-x-[.98] translate-y-2.5"></div>
-    </form>
-
-    <div id="success" class="hidden text-xl font-sans font-bold text-blue-500">
-      <span class="text-2xl rounded-full bg-blue-50 py-2 px-2.5 mr-2 leading-none">👍</span> Hey thanks!
-    </div>
-
-  </aside>
-
-</header>
-
-
-
-<main class="mt-6 bg-red-400">
+<main>
+  <div class="sawtooth h-12"></div>
+  <div class="py-24">
+    <h1 class="text-center font-serif text-2xl sm:text-4xl text-blue-400 font-bold">Tyler Campbell, <span class="whitespace-nowrap">The Website</span></h1>
+  </div>
+  
   {% for image in gallery %}
-    <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center first-of-type:pt-16">
-      {% if loop.index == 1 %}
-        {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-800", "max-height: 80svh;", "100vw", "eager" %}
-      {% else %}
-        {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-800", "max-height: 80svh;" %}
-      {% endif%}
-    </article>
+    {# {% if loop.index < 4 %} #}
+      <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center first-of-type:pt-0 last-of-type:pb-0">
+        {% if loop.index == 1 %}
+          {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-700", "max-height: 80svh;", "100vw", "eager" %}
+        {% else %}
+          {% picture "gallery/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-700", "max-height: 80svh;" %}
+        {% endif%}
+      </article>
+    {# {% endif %} #}
   {% endfor %}
+
+  <p class="text-center py-16"><a class="underline font-serif text-stone-400" rel="me" href="https://mastodon.social/@tylerscramble">tylerscramble@mastodon.social</a></p>
+
 </main>
 
 
-
 <script>
-  // form
-  let myForm = document.querySelector('#contact form');
-  let message = document.querySelector('#contact form textarea');
-  let submit = document.querySelector('#contact form button');
-  let success = document.querySelector('#success');
-  // form - disable submit button if textarea empty
-  function btnActivation(){
-    if (!message.value.length) {
-      submit.disabled = true;            
-    } else {
-      submit.disabled = false;
-    }           
-  }
-  // form - ajax
-  myForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const formData = new FormData(myForm);
-    fetch(myForm.getAttribute('action'), {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(res => {
-      if (res) {
-        myForm.classList.add('hidden')
-        success.classList.replace('hidden', 'block')
-      }
-    });
-  });
+  {% include "app.js" %}
 </script>

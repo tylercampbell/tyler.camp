@@ -16,6 +16,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'serif': ['DynaPuff', ...defaultTheme.fontFamily.serif],
+        'sans':  ['Nunito', ...defaultTheme.fontFamily.sans],
       },
     }
   }

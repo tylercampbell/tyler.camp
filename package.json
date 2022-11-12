@@ -1,21 +1,36 @@
 {
   "scripts": {
-    "dev": "npx eleventy --serve --incremental",
-    "build": "NODE_ENV=production ELEVENTY_PRODUCTION=true npx eleventy"
+    "dev:eleventy":   "cross-env ELEVENTY_ENV=dev  eleventy --serve --incremental",
+    "build:eleventy": "cross-env ELEVENTY_ENV=prod eleventy",
+
+    "dev:postcss":   "postcss src/_includes/entry.css -o _dist/styles.css --config ./postcss.config.js -w",
+    "build:postcss": "postcss src/_includes/entry.css -o _dist/styles.css --config ./postcss.config.js",
+    
+    "dev":   "cross-env run-p dev:*",
+    "build": "cross-env NODE_ENV=production run-s build:*"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.11",
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+
+    "@11ty/eleventy": "^2.0.0-canary.16",
+
     "@11ty/eleventy-img": "^2.0.1",
-    "@quasibit/eleventy-plugin-sitemap": "^2.1.5",
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
+    "eleventy-plugin-metagen": "^1.7.11",
+    
+    "postcss": "^8.4.18",
+    "postcss-cli": "^10.0.0",
+    "postcss-lightningcss": "^0.6.0",
+
+    "tailwindcss": "^3.2.1",
     "@tailwindcss/forms": "^0.5.3",
-    "autoprefixer": "^10.4.2",
-    "clean-css": "^5.3.0",
-    "eleventy-plugin-metagen": "^1.6.0",
-    "eleventy-plugin-svg-sprite": "^1.2.2",
+    
     "html-minifier": "^4.0.0",
-    "netlify-plugin-cache": "^1.0.3",
-    "postcss": "^8.4.6",
-    "scrollmagic": "^2.0.8",
-    "tailwindcss": "^3.1.0"
-  }
+    
+    "netlify-plugin-cache": "^1.0.3"
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }
