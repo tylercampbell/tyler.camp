@@ -15,6 +15,7 @@
 
     "@11ty/eleventy": "^2.0.0-canary.16",
 
+    "@11ty/eleventy-img": "^2.0.1",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "eleventy-plugin-metagen": "^1.7.11",
     
