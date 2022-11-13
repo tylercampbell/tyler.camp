@@ -1,17 +1,5 @@
 [
   {
-    "name": "sketchbook",
-    "src": "001.jpeg"
-  },
-  {
-    "name": "password",
-    "src": "002.jpeg"
-  },
-  {
-    "name": "unknown figure",
-    "src": "003.jpeg"
-  },
-  {
     "name": "self portrait",
     "src": "005.jpeg"
   },
@@ -32,32 +20,8 @@
     "src": "005c.jpeg"
   },
   {
-    "name": "teenage mutant ninja turnips library card 2",
-    "src": "005d.jpeg"
-  },
-  {
-    "name": "magnor cover",
-    "src": "006.jpeg"
-  },
-  {
-    "name": "magnor vs slug",
-    "src": "007.jpeg"
-  },
-  {
-    "name": "tyler with wwf magazine",
-    "src": "008a.jpg"
-  },
-  {
-    "name": "dirtbike jumping over monster",
-    "src": "009.jpeg"
-  },
-  {
     "name": "tyler riding dirtbike",
     "src": "010a.jpg"
-  },
-  {
-    "name": "bmx jumps tyler built",
-    "src": "010.jpeg"
   },
   {
     "name": "dirtbike track in the woods",
@@ -66,10 +30,6 @@
   {
     "name": "plan 2 for dirtbike track in the woods",
     "src": "013.jpeg"
-  },
-  {
-    "name": "plan 4 for dirtbike track in the woods",
-    "src": "015.jpeg"
   },
   {
     "name": "plan 5 for dirtbike track in the woods",
@@ -82,14 +42,6 @@
   {
     "name": "monster truck",
     "src": "017.jpeg"
-  },
-  {
-    "name": "evel knievel",
-    "src": "018.jpeg"
-  },
-  {
-    "name": "matt hoffman",
-    "src": "019.jpeg"
   },
   {
     "name": "tyler in mario shirt",
@@ -108,32 +60,12 @@
     "src": "022.jpeg"
   },
   {
-    "name": "h.o.g. pig",
-    "src": "023.jpeg"
-  },
-  {
-    "name": "t.c.",
-    "src": "024.jpeg"
-  },
-  {
     "name": "tyler in loonies blunt shirt for first day of school",
     "src": "025a.jpg"
   },
   {
     "name": "comic page, OC",
     "src": "025.jpeg"
-  },
-  {
-    "name": "fighting game characters, OC",
-    "src": "027.jpeg"
-  },
-  {
-    "name": "comic book character, OC",
-    "src": "028.jpeg"
-  },
-  {
-    "name": "alien attack",
-    "src": "029.jpeg"
   },
   {
     "name": "comic book character, OC",
@@ -148,20 +80,8 @@
     "src": "038.jpeg"
   },
   {
-    "name": "powdered toast man",
-    "src": "038a.jpeg"
-  },
-  {
     "name": "grandparents' anniversary",
     "src": "038b.jpeg"
-  },
-  {
-    "name": "spider-man and beast",
-    "src": "039.jpeg"
-  },
-  {
-    "name": "shrunken hulk with rat",
-    "src": "040.jpeg"
   },
   {
     "name": "wolverine",
@@ -222,10 +142,6 @@
   {
     "name": "wood cut still life",
     "src": "053.jpeg"
-  },
-  {
-    "name": "etching",
-    "src": "054.jpeg"
   },
   {
     "name": "wood cut figure",
