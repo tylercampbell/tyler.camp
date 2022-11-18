@@ -1,8 +1,8 @@
   // form submission & send button toggle
-  let myForm = document.querySelector('#contact form');
-  let message = document.querySelector('#contact form textarea');
+  let myForm = document.querySelector('#postcard form');
+  let message = document.querySelector('#postcard form textarea');
+  let submit = document.querySelector('#postcard form button');
   let sender = document.querySelector('#sender');
-  let submit = document.querySelector('#contact form button');
   let success = document.querySelector('#success');
   // form - disable submit button if textarea empty
   function btnActivation(){
@@ -26,9 +26,9 @@
     })
     .then(res => {
       if (res) {
-        document.querySelector('aside').classList.add('hidden')
+        document.querySelector('#prompt').classList.add('opacity-0')
         myForm.classList.add('hidden')
-        success.classList.replace('hidden', 'block')
+        success.classList.replace('hidden', 'grid')
       }
     });
   });
@@ -48,9 +48,8 @@
     var textMeasurement = context.measureText(text);
     return textMeasurement.width;
   }
-  var input = document.getElementById('sender');
   // listen for any input on the input field
-  input.addEventListener('input', function(e) {
+  sender.addEventListener('input', function(e) {
     var width = Math.floor(getTextWidth(e.target));
     // add 30 px to pad the input.
     var widthInPx = (width + 30) + "px";
