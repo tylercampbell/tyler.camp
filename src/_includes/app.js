@@ -4,6 +4,8 @@
   let submit = document.querySelector('#postcard form button');
   let sender = document.querySelector('#sender');
   let success = document.querySelector('#success');
+  // let viewport = document.querySelector("meta[name=viewport]");
+  
   // form - disable submit button if textarea empty
   function btnActivation(){
     if (!message.value.length || !sender.value.length) {
@@ -29,6 +31,7 @@
         document.querySelector('#prompt').classList.add('opacity-0')
         myForm.classList.add('hidden')
         success.classList.replace('hidden', 'grid')
+        // viewport.setAttribute('content', 'width=device-width, initial-scale=1.0')
       }
     });
   });
