@@ -2,43 +2,13 @@
 const metagen = require('eleventy-plugin-metagen');
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const htmlmin = require("html-minifier");
-const Image = require("@11ty/eleventy-img");
-
 
 
 module.exports = function(eleventyConfig) {
 
-  // eleventy-img
-  function pictureShortcode(src, alt, classes = "", style = "", sizes = "100vw", loading = "lazy", decoding = "async") {
-    let url = `./src/assets/images/${src}`;
-    let options = {
-      widths: [480, 770, 1920],
-      formats: ["webp", "jpeg"],
-      urlPath: "/img/opt/",
-      outputDir: "./_dist/img/opt/",
-    };
-    Image(url, options);
-    let imageAttributes = {
-      alt,
-      class: classes,
-      style: style,
-      sizes,
-      loading,
-      decoding,
-    };
-    let metadata = Image.statsSync(url, options);
-    return Image.generateHTML(metadata, imageAttributes, {
-      whitespaceMode: "inline",
-    });
-  }
-
-  // add shortcodes
-  eleventyConfig.addShortcode("picture", pictureShortcode);
-
   // watch files for changes
   eleventyConfig.addWatchTarget('./tailwind.config.js');
   eleventyConfig.addWatchTarget('./postcss.config.js');
-  eleventyConfig.addWatchTarget('./src/_includes/entry.css');
   eleventyConfig.addWatchTarget("./_dist/styles.css");
 
   // passthrough files
