@@ -1,0 +1,26 @@
+---
+title: Blog Backlog
+layout: page
+---
+
+<div class="prose mb-8">
+  <h1>{{title}}</h1>
+</div>
+<div class="space-y-4">
+  {% for issue in ghIssues %}
+    <article class="prose">
+      <div class="w-full flex">
+        <div>{{ issue.created_at | format }}}}</div>
+      </div>
+      <h2>
+        <a href="{{ issue.html_url }}" target="_blank" rel="nooperner">{{ issue.title }}</a>
+        </h2>
+      {{ issue.body | markdown | safe }}
+    </article>
+  {% else %}
+    <div>
+      <span>Backlog is empty. But you can request an article on <a href="https://github.com/tnobody/tnobody.github.io/issues/new?labels=article,backlog" target="_blank" rel="noopner">Github</a></span>
+    </div>
+  {% endfor %}
+</div>
+<!-- This section is like a personal note collection of ideas for this blog ## Enhancements and technical gimmicks - [ ] Get this list from GH Issues - [ ] Integrate GH Issues for commenting - [ ] Enable webmentions for articles ## Contents - [ ] Hidden Features of Tailwindcss - [ ] Unleash your data from classes - [ ] Nerdman -->

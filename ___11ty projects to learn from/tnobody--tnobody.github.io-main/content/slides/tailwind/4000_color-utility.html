@@ -1,0 +1,36 @@
+---
+tones:
+- 200
+- 300
+- 400
+- 500
+- 600
+- 700
+- 800
+- 900
+colors: ["green", "blue", "yellow"]
+---
+<h2>Beautiful Color Palette</h2>
+<div class="flex flex-col space-y-4 items-center">
+  <code class="font-mono">.bg-{COLOR}-{TONE}</code>
+  {% for color in colors %}
+  <div class="flex fragment space-x-4">
+    <div class="uppercase w-48 text-right">{{color}}</div>
+    {% for tone in tones %}
+    <div class="w-12 h-12 rounded bg-{{color}}-{{tone}}"></div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <div class="fragment ">... and a lot of other colors ...</div>
+  <div class="flex space-x-4">
+    <div class="text-indigo-300 flex flex-col fragment fade-up">
+      <span>... also for text...</span>
+      <code class="font-mono">.text-indigo-300</code>
+    </div>
+    <div class="border-2 rounded border-red-600 flex flex-col fragment fade-up">
+      <span>... or borders</span>
+      <code class="font-mono">.border-red-600</code>
+    </div>
+  </div>
+
+</div>

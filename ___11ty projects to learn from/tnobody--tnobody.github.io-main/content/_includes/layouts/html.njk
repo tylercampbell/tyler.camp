@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% set page_title  = 'Nobody codes perfect - ' + title if title else  'Nobody codes perfect' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="{{page_title}}" />
+    <meta property="twitter:title" content="{{page_title}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://nobody-codes-perfect.dev/static/thumbnail.png" />
+    <meta property="og:url" content="{{page.url}}" />
+    <meta name="twitter:card" content="summary" />
+
+    <!--  Non-Essential, But Recommended -->
+    {% if description %}
+    <meta property="og:description" content="{{description}}">
+    {% endif %}
+    <meta property="og:site_name" content="Nobody codes perfect">
+    <meta name="twitter:image:alt" content="Logo of the page">
+
+    <!--  Non-Essential, But Required for Analytics -->    
+    <meta name="twitter:site" content="@derKeiner">
+    <title>{{page_title}}</title>
+    {% if criticalCSS %}
+      <!-- capture the CSS content as a Nunjucks variable -->
+      {% set css %}
+      {% include "styles/index.css" %}
+      {% endset %}
+      <!-- feed it through our cssmin filter to minify -->
+      <style>
+        {{css | postcss | safe}}
+      </style>
+    {% else %}
+      <link rel="stylesheet" href="/theme.css"/>
+    {% endif %}
+    {% for style in styles %}
+      <link rel="stylesheet" href="{{ style }}"/>
+    {% endfor %}
+    <script defer type="module" src="/app.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  {{ content | safe }}
+  {% for script in scripts %}
+    <script src="{{script}}" type="module"></script>
+  {% endfor %}
+</html>

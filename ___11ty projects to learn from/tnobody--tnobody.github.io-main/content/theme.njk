@@ -1,0 +1,10 @@
+---
+permalink: theme.css
+---
+
+{% set css %}
+  {% include "styles/index.css" %}
+  {% include "styles/reveal-override.css" %}
+  {% include "styles/prism-theme.css" %}
+{% endset %}
+{{css | postcss | safe}}
