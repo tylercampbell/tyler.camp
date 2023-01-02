@@ -10,6 +10,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "./static": "/" });
   // postcss & esbuild output here for more reliable livereload
   eleventyConfig.addPassthroughCopy({ "./src/_includes/assets/_compiled/": "assets" });
+  // opt out of emulated passthrough during --serve
+  eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
   // add plugins
   eleventyConfig.addPlugin(metagen);
