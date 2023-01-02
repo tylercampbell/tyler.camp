@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
-    './src/**/*.{html,md,11ty.js,liquid,njk,hbs,mustache,ejs,haml,pug}'
+    './src/**/*.{html,webc,md,liquid,njk}'
   ],
   safelist: [
     'scrolled',

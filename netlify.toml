@@ -1,6 +1,6 @@
 [build]
   #ignore = "node ignore_build.js"
-  publish = "_dist"
+  publish = "_site"
   command = "npm run build"
 
 [build.environment]
@@ -26,6 +26,6 @@
   package = "netlify-plugin-cache"
   [plugins.inputs]
     paths = [
-      "_dist/img/opt", # Eleventy-Image Disk Cache
+      "_site/img/opt", # Eleventy-Image Disk Cache
       ".cache" # Remote Asset Cache (not used currently)
     ]
