@@ -11,7 +11,6 @@ const sender = document.getElementById('sender');
 const submit = document.getElementById('submit');
 
 function submitActivation() {
-  console.log('button typed');
   if (!message.value.length || !sender.value.length) {
     submit.disabled = true;
   } else {
