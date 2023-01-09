@@ -1,12 +1,12 @@
 {
   "scripts": {
     "clean": "rimraf _site",
-    "serve:postcss": "postcss ./src/_includes/globalAssets/styles.css -o ./src/_includes/globalAssets/_compiled/compiled.css --watch",
-    "serve:scripts": "esbuild ./src/_includes/globalAssets/scripts.js --outfile=./src/_includes/globalAssets/_compiled/compiled.js --bundle --watch",
+    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --watch",
+    "serve:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --watch",
     "serve:eleventy": "eleventy --serve --incremental",
     "dev": "cross-env NODE_ENV=development npm-run-all clean build:postcss -p serve:*",
-    "build:postcss": "postcss ./src/_includes/globalAssets/styles.css -o ./src/_includes/globalAssets/_compiled/compiled.css",
-    "build:scripts": "esbuild ./src/_includes/globalAssets/scripts.js --outfile=./src/_includes/globalAssets/_compiled/compiled.js --bundle --minify",
+    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css",
+    "build:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --minify",
     "build:eleventy": "eleventy",
     "build": "cross-env NODE_ENV=production npm-run-all clean -s build:*"
   },

@@ -9,7 +9,7 @@ module.exports = function(eleventyConfig) {
   // passhthrough static files
   eleventyConfig.addPassthroughCopy({ "./static": "/" });
   // postcss & esbuild output here for more reliable livereload
-  eleventyConfig.addPassthroughCopy({ "./src/_includes/globalAssets/_compiled/": "/" });
+  eleventyConfig.addPassthroughCopy({ "./src/_includes/assets-global/_compiled/": "/" });
   // opt out of emulated passthrough during --serve
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
@@ -27,10 +27,11 @@ module.exports = function(eleventyConfig) {
   // process css (inline)
   eleventyConfig.addNunjucksAsyncFilter('cssmin', function (code, callback) {
     postcss([
-      require('tailwindcss'),
-      require('postcss-100vh-fix'),
       require('postcss-lightningcss')({
-        browsers: 'defaults'
+        browsers: 'defaults',
+        lightningcssOptions: {
+          minify: (process.env.NODE_ENV === "production" ? true : false)
+        },
       })
     ])
       .process(code, { from: undefined })
