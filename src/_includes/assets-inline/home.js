@@ -33,8 +33,6 @@ sender.addEventListener('input', function (e) {
   e.target.style.width = widthInPx;
 }, false);
 
-
-
 // auto-height textarea https://codepen.io/vsync/pen/bGgQzL
 function getScrollHeight(elm) {
   var savedValue = elm.value
@@ -77,7 +75,6 @@ myForm.addEventListener('submit', e => {
         document.querySelector('#prompt').classList.add('opacity-0')
         myForm.classList.add('hidden')
         success.classList.replace('hidden', 'grid')
-        // viewport.setAttribute('content', 'width=device-width, initial-scale=1.0')
       }
     });
 });
