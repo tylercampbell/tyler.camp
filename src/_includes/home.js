@@ -1,11 +1,3 @@
-// import Alpine from 'alpinejs'
-
-// window.Alpine = Alpine
-
-// Alpine.start()
-
-
-
 const message = document.getElementById('message');
 const sender = document.getElementById('sender');
 const submit = document.getElementById('submit');
@@ -89,4 +81,3 @@ myForm.addEventListener('submit', e => {
       }
     });
 });
-

@@ -1,17 +1,17 @@
 {
   "scripts": {
     "clean": "rimraf _site",
-    "serve:postcss": "postcss ./src/_includes/assets/styles.css -o ./src/_includes/assets/_compiled/compiled.css --watch",
-    "serve:scripts": "esbuild ./src/_includes/assets/scripts.js --outfile=./src/_includes/assets/_compiled/compiled.js --bundle --watch",
+    "serve:postcss": "postcss ./src/_includes/globalAssets/styles.css -o ./src/_includes/globalAssets/_compiled/compiled.css --watch",
+    "serve:scripts": "esbuild ./src/_includes/globalAssets/scripts.js --outfile=./src/_includes/globalAssets/_compiled/compiled.js --bundle --watch",
     "serve:eleventy": "eleventy --serve --incremental",
     "dev": "cross-env NODE_ENV=development npm-run-all clean build:postcss -p serve:*",
-    "build:postcss": "postcss ./src/_includes/assets/styles.css -o ./src/_includes/assets/_compiled/compiled.css",
-    "build:scripts": "esbuild ./src/_includes/assets/scripts.js --outfile=./src/_includes/assets/_compiled/compiled.js --bundle --minify",
+    "build:postcss": "postcss ./src/_includes/globalAssets/styles.css -o ./src/_includes/globalAssets/_compiled/compiled.css",
+    "build:scripts": "esbuild ./src/_includes/globalAssets/scripts.js --outfile=./src/_includes/globalAssets/_compiled/compiled.js --bundle --minify",
     "build:eleventy": "eleventy",
     "build": "cross-env NODE_ENV=production npm-run-all clean -s build:*"
   },
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.20",
+    "@11ty/eleventy": "^2.0.0-canary.25",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "@tailwindcss/forms": "^0.5.3",
     "alpinejs": "^3.10.5",
@@ -25,6 +25,7 @@
     "netlify-plugin-cache": "^1.0.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.20",
+    "postcss-100vh-fix": "^1.0.2",
     "postcss-cli": "^10.1.0",
     "postcss-lightningcss": "^0.6.0",
     "rimraf": "^3.0.2"

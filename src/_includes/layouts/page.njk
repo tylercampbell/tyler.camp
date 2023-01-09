@@ -2,10 +2,11 @@
 <html lang="en"> 
   <head>
     <meta charset="utf-8">
-
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <meta name="theme-color" content="{{ bgcolor }}">
 
     {% metagen
       title="Tyler Campbell",
@@ -19,10 +20,23 @@
       twitter_card_type="summary_large_image"
     %}
 
-    <meta name="theme-color" content="{{ bgcolor }}">
+    {% if scripts %}
+      <script type="module">
+        {% set js %}{% include scripts %}{% endset %}
+        {{ js | jsmin | safe }}
+      </script>
+    {% endif %}
 
-    <link href="/assets/compiled.css" rel="stylesheet"/>
-    <script src="/assets/compiled.js" defer></script>
+    {% if styles %}
+      <style>
+        {% set css %}{% include styles %}{% endset %}
+        {{ css | cssmin }}
+      </style>
+    {% endif %}
+
+    <link href="/compiled.css" rel="stylesheet"/>
+    <script src="/compiled.js" defer></script>
+  
   </head>
 
   <body style="background-color: {{ bgcolor }}">
