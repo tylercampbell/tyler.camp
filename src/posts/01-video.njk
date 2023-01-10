@@ -15,12 +15,14 @@ bgcolor: rgb(248 113 113)
   {% set noise %}{% include "noise.njk" %}{% endset %}
   <div style="background-image: url({{noise}})" class="h-screen w-full object-cover absolute mix-blend-multiply"></div>
   
-  <video autoplay loop muted playsinline
-    class="h-screen w-full object-cover"
-    style="clip-path: url(#myClip);">
-    <source src="/clouds.mp4" type="video/mp4"/>
-    Your browser does not support the video element.
-  </video>
+  <div style="clip-path: url(#myClip);">
+    <video autoplay loop muted playsinline
+      class="h-screen w-full object-cover blur"
+      >
+      <source src="{{ video }}" type="video/mp4"/>
+      Your browser does not support the video element.
+    </video>
+  </div>
 
   <svg 
     width="0" height="0"
