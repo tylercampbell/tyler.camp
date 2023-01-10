@@ -975,8 +975,16 @@ select {
   opacity: .75;
 }
 
+.opacity-50 {
+  opacity: .5;
+}
+
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-25 {
+  opacity: .25;
 }
 
 .mix-blend-multiply {
@@ -1059,6 +1067,12 @@ select {
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 
+.transition-all {
+  transition-property: all;
+  transition-duration: .15s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
 @supports (-webkit-touch-callout: none) {
   .h-screen {
     height: -webkit-fill-available;
@@ -1096,6 +1110,10 @@ select {
 
 .hover\:fill-amber-200:hover {
   fill: #fde68a;
+}
+
+.hover\:opacity-100:hover {
+  opacity: 1;
 }
 
 .hover\:shadow-lg:hover {
