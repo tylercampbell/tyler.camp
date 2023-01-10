@@ -1,3 +1,0 @@
-// testing esbuild minify...
-const fn = obj => { return obj.x }
-console.log('"const fn = obj => { return obj.x }" >> ' + fn)
