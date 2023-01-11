@@ -13,6 +13,9 @@ module.exports = function(eleventyConfig) {
   // opt out of emulated passthrough during --serve
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
+  //ignore drafts
+  eleventyConfig.ignores.add("./src/posts/_drafts/");
+
   // add plugins
   eleventyConfig.addPlugin(metagen);
   eleventyConfig.addPlugin(sitemap, {
