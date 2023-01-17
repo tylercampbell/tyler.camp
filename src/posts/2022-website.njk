@@ -5,17 +5,16 @@ commit: https://github.com/tylercampbell/tyler.camp/commit/e7f9fbddac43258ab0623
 ---
 {# TODO: Add smileyface scroll effect that was there prior to the contact form #}
 <main class="py-16">
-
-  {% for image in scrapbook %}
-    {# {% if loop.index < 4 %} #}
-      <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center first-of-type:pt-0 last-of-type:pb-0">
-        {% if loop.index == 1 %}
-          {% picture "scrapbook/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-700", "max-height: 80svh;", "100vw", "eager" %}
-        {% else %}
-          {% picture "scrapbook/"+image.src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-700", "max-height: 80svh;" %}
-        {% endif%}
-      </article>
-    {# {% endif %} #}
-  {% endfor %}
-
+    {% for image in scrapbook %}
+      {% set src = "src/_images/scrapbook/"+image.src %}
+      {# {% if loop.index < 4 %} #}
+        <article id="{{ loop.index }}" class="snap-center py-8 flex justify-center items-center first-of-type:pt-0 last-of-type:pb-0">
+          {% if loop.index == 1 %}
+            {% pic src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-700", "max-height: 80svh;", "100vw", "eager" %}
+          {% else %}
+            {% pic src, image.name, "w-auto h-auto max-h-[80vh] max-w-[80vw] border-8 border-orange-100 ring-8 ring-stone-700", "max-height: 80svh;" %}
+          {% endif%}
+        </article>
+      {# {% endif %} #}
+    {% endfor %}
 </main>

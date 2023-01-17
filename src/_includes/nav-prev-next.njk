@@ -15,34 +15,32 @@
   </svg>
 {% endset%}
 
-{% set buttonCss = "z-50 fixed rounded-full w-16 p-0.5 fill-orange-200 bg-stone-600 hover:fill-amber-200 hover:bg-yellow-900 ring-4 ring-transparent hover:ring-white transition-all hover:shadow-lg hover:shadow-yellow-900 hover:scale-105 opacity-25 hover:opacity-50" %}
+{% set buttonCss = "
+  z-50 fixed 
+  rounded-full w-12 sm:w-16 aspect-square p-0.5
+  fill-orange-200 bg-stone-600 hover:fill-amber-200 hover:bg-yellow-900 
+  ring-4 ring-transparent hover:ring-white
+  hover:shadow-lg hover:shadow-yellow-900 
+  hover:scale-105 
+  opacity-50 sm:opacity-25 hover:opacity-50" 
+%}
+
+{% set prevCssNS = "-rotate-90 left-1/2 -ml-8 top-4" %}
+{% set nextCssNS = "rotate-90 right-1/2 -mr-8 bottom-4" %}
+
+{% set prevCssEW = "bottom-4 sm:top-1/2 -mt-8 ml-4 -scale-x-100 hover:-scale-x-105" %}
+{% set nextCssEW = "bottom-4 sm:top-1/2 -mt-8 right-4" %}
 
 {% if previousPost %}
   <a href="{{ previousPost.url }}" title="previous post"
-    class="
-      {{ buttonCss }}
-      -rotate-90
-      left-1/2 -ml-8 
-      top-4
-
-      sm:top-1/2 sm:-mt-8 
-      sm:left-4 sm:ml-0
-      sm:rotate-180 
-    ">{{ arrow | safe }}
+    class="{{ buttonCss }} {{ prevCssEW}}"
+    >{{ arrow | safe }}
   </a>
 {% endif %}
 
 {% if nextPost %}
   <a href="{{ nextPost.url }}" title="next post"
-    class="
-      {{ buttonCss}}
-      rotate-90
-      right-1/2 -mr-8 
-      bottom-4
-
-      sm:bottom-1/2 sm:-mb-8 
-      sm:right-4 sm:mr-0
-      sm:rotate-0
-    ">{{ arrow | safe }}
+    class="{{ buttonCss }} {{ nextCssEW}}"
+    >{{ arrow | safe }}
   </a>
 {% endif %}
