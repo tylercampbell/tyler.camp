@@ -8,7 +8,7 @@
     "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css",
     "build:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --minify",
     "build:eleventy": "eleventy",
-    "build": "cross-env NODE_ENV=production npm-run-all clean -s build:*"
+    "build": "cross-env NODE_ENV=production npm-run-all -s build:*"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-canary.25",
