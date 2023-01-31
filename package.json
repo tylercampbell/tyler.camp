@@ -2,8 +2,8 @@
   "scripts": {
     "clean": "rimraf _site",
 
-    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --watch",
-    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css",
+    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --verbose --watch",
+    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --verbose",
 
     "serve:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --watch",
     "build:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --minify",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-beta.1",
-    "@11ty/eleventy-img": "^2.0.1",
+    "@11ty/eleventy-img": "^3.0.0",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "@tailwindcss/forms": "^0.5.3",
     "alpinejs": "^3.10.5",
@@ -32,6 +32,6 @@
     "postcss": "^8.4.20",
     "postcss-cli": "^10.1.0",
     "postcss-lightningcss": "^0.6.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.1.2"
   }
 }
