@@ -8,7 +8,7 @@ module.exports = function(eleventyConfig) {
 
   // reload dev server from postcss & esbuild output in package.json
   eleventyConfig.setServerOptions({
-    watch: ["_site/assets/*.{js,css}"],
+    watch: ["_site/*.{js,css}"],
   });
 
   // passhthrough static files
