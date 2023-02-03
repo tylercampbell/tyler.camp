@@ -2,17 +2,17 @@
   "scripts": {
     "clean": "rimraf _site",
 
-    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --verbose --watch",
-    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --verbose",
+    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./_site/compiled.css --verbose --watch",
+    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./_site/compiled.css --verbose",
 
-    "serve:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --watch",
-    "build:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --minify",
+    "serve:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./_site/compiled.js --bundle --watch",
+    "build:scripts": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./_site/compiled.js --bundle --minify",
 
     "serve:eleventy": "eleventy --serve --incremental",
     "build:eleventy": "eleventy",
 
-    "dev": "cross-env NODE_ENV=development npm-run-all clean build:postcss -p serve:*",
-    "build": "cross-env NODE_ENV=production npm-run-all -s build:*"
+    "dev":   "cross-env NODE_ENV=development npm-run-all clean -p serve:*",
+    "build": "cross-env NODE_ENV=production  npm-run-all -s build:*"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-beta.1",

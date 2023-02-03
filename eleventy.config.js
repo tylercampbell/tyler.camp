@@ -6,10 +6,14 @@ const htmlmin = require("html-minifier");
 
 module.exports = function(eleventyConfig) {
 
+  // reload dev server from postcss & esbuild output in package.json
+  eleventyConfig.setServerOptions({
+    watch: ["_site/assets/*.{js,css}"],
+  });
+
   // passhthrough static files
   eleventyConfig.addPassthroughCopy({ "./static": "/" });
-  // postcss & esbuild output here for more reliable livereload
-  eleventyConfig.addPassthroughCopy({ "./src/_includes/assets-global/_compiled/": "/" });
+
   // opt out of emulated passthrough during --serve
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
