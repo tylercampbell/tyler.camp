@@ -1,15 +1,10 @@
 const metagen = require('eleventy-plugin-metagen');
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
-const postcss = require('postcss');
-const esbuild = require('esbuild');
-const htmlmin = require("html-minifier");
 
 module.exports = function(eleventyConfig) {
 
-  // reload dev server from postcss & esbuild output in package.json
-  eleventyConfig.setServerOptions({
-    watch: ["_site/*.{js,css}"],
-  });
+  // watch tailwind config for changes
+  eleventyConfig.addWatchTarget('./tailwind.config.js');
 
   // passhthrough static files
   eleventyConfig.addPassthroughCopy({ "./static": "/" });
@@ -29,48 +24,12 @@ module.exports = function(eleventyConfig) {
   });
 
   // import external configs
-  eleventyConfig.addPlugin(require('./src/_11ty/shortcode-image.js'))
-
-  // watch tailwind config for changes
-  eleventyConfig.addWatchTarget('./tailwind.config.js');
-
-  // process css (inline)
-  eleventyConfig.addNunjucksAsyncFilter('cssmin', function (code, callback) {
-    postcss([
-      require('postcss-lightningcss')({
-        browsers: 'defaults',
-        lightningcssOptions: {
-          minify: (process.env.NODE_ENV === "production" ? true : false)
-        },
-      })
-    ])
-      .process(code, { from: undefined })
-      .then(result => callback(null, result.css));
-  });
-
-  // process js (inline)
-  eleventyConfig.addNunjucksAsyncFilter('jsmin', function (code, callback) {
-    esbuild.transform(code, {
-      minify: true,
-    })
-      .then(result => callback(null, result.code));
-  });
-
-  // minify html if production
-  if (process.env.NODE_ENV === "production") {
-    eleventyConfig.addTransform("htmlmin", function (content) {
-      if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
-        let minified = htmlmin.minify(content, {
-          useShortDoctype: true,
-          removeComments: true,
-          collapseWhitespace: true
-        });
-        return minified;
-      }
-
-      return content;
-    });
-  }
+  eleventyConfig.addPlugin(require('./src/_11ty/eleventy-img.js'))
+  eleventyConfig.addPlugin(require('./src/_11ty/postcss.js'))
+  eleventyConfig.addPlugin(require('./src/_11ty/postcss-inline.js'))
+  eleventyConfig.addPlugin(require('./src/_11ty/javascript.js'))
+  eleventyConfig.addPlugin(require('./src/_11ty/javascript-inline.js'))
+  eleventyConfig.addPlugin(require('./src/_11ty/html.js'))
 
   return {
     dir: {
