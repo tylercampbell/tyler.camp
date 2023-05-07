@@ -63,6 +63,7 @@ myForm.addEventListener('input', (e) => {
 // handle form submission
 myForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  const formData = new FormData(myForm);
   const { action } = myForm;
   const headers = {
     'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
