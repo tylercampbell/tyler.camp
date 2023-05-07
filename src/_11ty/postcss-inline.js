@@ -6,7 +6,7 @@ module.exports = eleventyConfig => {
       require('postcss-lightningcss')({
         browsers: 'defaults',
         lightningcssOptions: {
-          minify: (process.env.NODE_ENV === "production" ? true : false)
+          minify: (process.env.NODE_ENV === "production")
         },
       })
     ])

@@ -3,6 +3,11 @@ const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 module.exports = function(eleventyConfig) {
 
+  // reload dev server from postcss & esbuild output in package.json
+  eleventyConfig.setServerOptions({
+    watch: ["_site/assets/*.{js,css}"],
+  });
+
   // watch tailwind config for changes
   eleventyConfig.addWatchTarget('./tailwind.config.js');
 
