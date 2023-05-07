@@ -1,6 +1,6 @@
 const esbuild = require('esbuild');
 
-const inputFiles = [`./src/_includes/assets-global/scripts.js`];
+const inputFiles = [`./src/_includes/js/global.js`];
 const outputDir = `./_site/assets`;
 
 module.exports = eleventyConfig => {
