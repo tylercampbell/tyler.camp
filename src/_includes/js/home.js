@@ -48,7 +48,7 @@ function onTextareaInput(e) {
   }
 }
 
-// add event listeners
+// add input event listeners
 myForm.addEventListener('input', (e) => {
   if (e.target === message || e.target === sender) {
     submitActivation();
@@ -61,21 +61,46 @@ myForm.addEventListener('input', (e) => {
 });
 
 // handle form submission
-myForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const formData = new FormData(myForm);
-  const { action } = myForm;
+myForm.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const { action } = form;
+
   const headers = {
     'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   };
+
+  const formData = new FormData(form);
   const body = new URLSearchParams(formData).toString();
+
   fetch(action, { method: 'POST', headers, body })
-    .then(res => {
-      if (res) {
-        document.querySelector('#prompt').classList.add('opacity-0');
-        myForm.classList.add('hidden');
-        success.classList.replace('hidden', 'grid');
-      }
-    });
-});
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+function handleResponse(response) {
+  if (response.ok) {
+    handleSuccess();
+  } else {
+    throw new Error(`Network response was not ok. Response status: ${response.status}`);
+  }
+}
+
+function handleSuccess() {
+  const prompt = document.querySelector('#prompt');
+  const form = document.querySelector('form');
+  const success = document.querySelector('#success');
+
+  prompt.classList.add('opacity-0');
+  form.classList.add('hidden');
+  success.classList.replace('hidden', 'grid');
+}
+
+function handleError(error) {
+  console.error('Error:', error);
+  // handle error - display error message to user or retry the request
+}
