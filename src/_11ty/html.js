@@ -3,8 +3,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = eleventyConfig => {
 
-  eleventyConfig.addTransform("htmlmin", function (content) {
-    if (this.page.outputPath && this.page.outputPath.endsWith(".html") && isProduction) {
+  eleventyConfig.addTransform('htmlmin', function (content) {
+    if (this.page.outputPath && this.page.outputPath.endsWith('.html') && isProduction) {
       return htmlmin.minify(content, {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,

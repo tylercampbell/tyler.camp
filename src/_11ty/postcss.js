@@ -2,25 +2,25 @@ const postcss = require('postcss');
 const fs = require('fs');
 const path = require('path');
 
-const inputFile = './src/_includes/assets-global/styles.css';
-const outputFile = './_site/assets/styles.css';
+const inputFile = `./src/_includes/assets-global/styles.css`;
+const outputFile = `./_site/assets/styles.css`;
 
 const inputFileContents = fs.readFileSync(inputFile, 'utf-8');
 
-const plugins = [
-  require('tailwindcss'),
-  require('postcss-lightningcss')({
-    browsers: 'defaults',
-    lightningcssOptions: {
-      minify: (process.env.NODE_ENV === "production")
-    },
-  }),
-];
-
 module.exports = eleventyConfig => {
+
   eleventyConfig.on('eleventy.after', async () => {
     try {
-      const result = await postcss(plugins).process(inputFileContents, { from: inputFile, to: outputFile });
+      const result = await postcss([
+        require('tailwindcss'),
+        require('postcss-lightningcss')({
+          browsers: 'defaults',
+          lightningcssOptions: {
+            minify: (process.env.NODE_ENV === "production")
+          },
+        }),
+      ]).
+        process(inputFileContents, { from: inputFile, to: outputFile });
 
       // Create the output directory if it doesn't exist
       const outputDir = path.dirname(outputFile);
@@ -33,5 +33,19 @@ module.exports = eleventyConfig => {
     } catch (error) {
       console.error(error);
     }
-  })
+  });
+
+  eleventyConfig.addNunjucksAsyncFilter('cssmin', function (code, callback) {
+    postcss([
+      require('postcss-lightningcss')({
+        browsers: 'defaults',
+        lightningcssOptions: {
+          minify: (process.env.NODE_ENV === "production")
+        },
+      })
+    ])
+      .process(code, { from: undefined })
+      .then(result => callback(null, result.css));
+  });
+
 }

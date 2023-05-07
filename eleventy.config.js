@@ -31,9 +31,7 @@ module.exports = function(eleventyConfig) {
   // import external configs
   eleventyConfig.addPlugin(require('./src/_11ty/eleventy-img.js'))
   eleventyConfig.addPlugin(require('./src/_11ty/postcss.js'))
-  eleventyConfig.addPlugin(require('./src/_11ty/postcss-inline.js'))
-  eleventyConfig.addPlugin(require('./src/_11ty/javascript.js'))
-  eleventyConfig.addPlugin(require('./src/_11ty/javascript-inline.js'))
+  eleventyConfig.addPlugin(require('./src/_11ty/esbuild.js'))
   eleventyConfig.addPlugin(require('./src/_11ty/html.js'))
 
   return {
