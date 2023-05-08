@@ -12,7 +12,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget('./tailwind.config.js');
 
   // passhthrough static files
-  eleventyConfig.addPassthroughCopy({ "./static": "/" });
+  eleventyConfig.addPassthroughCopy({ "./src/static": "/" });
 
   // opt out of emulated passthrough during --serve
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
@@ -36,7 +36,8 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-      input: 'src'
+      input: 'src',
+      layouts: '_layouts',
     }
   };
 };
