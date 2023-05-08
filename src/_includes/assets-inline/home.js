@@ -1,18 +1,17 @@
-const myForm = document.querySelector('#postcard form');
-const message = document.getElementById('message');
-const sender = document.getElementById('sender');
-const submit = document.getElementById('submit');
-const success = document.getElementById('success');
-const canvas = document.createElement('canvas');
+const formElement = document.querySelector('form[name="contact"]');
+const messageInput = document.getElementById('message');
+const senderInput = document.getElementById('sender');
+const submitButton = document.getElementById('submit');
+const promptElement = document.getElementById('prompt');
+const successElement = document.getElementById('success');
+const canvasElement = document.createElement('canvas');
 
-// enable submit button if both message and sender have input
-function submitActivation() {
-  submit.disabled = (message.value.trim() === '' || sender.value.trim() === '');
+function enableSubmitButton() {
+  submitButton.disabled = (messageInput.value.trim() === '' || senderInput.value.trim() === '');
 }
 
-// get width of text input
 function getTextWidth(el) {
-  const context = canvas.getContext('2d');
+  const context = canvasElement.getContext('2d');
   const font = window.getComputedStyle(el, null).getPropertyValue('font');
   const text = el.value;
   context.font = font;
@@ -20,53 +19,48 @@ function getTextWidth(el) {
   return textMeasurement.width;
 }
 
-// set sender input width dynamically
-function onSenderInput(e) {
-  const width = Math.floor(getTextWidth(e.target)) + 30; // add 30px to pad the input
-  e.target.style.width = `${width}px`;
+function setSenderInputWidth() {
+  const width = Math.floor(getTextWidth(senderInput)) + 30; // add 30px to pad the input
+  senderInput.style.width = `${width}px`;
 }
 
-// get base scroll height of textarea
-function getScrollHeight(elm) {
-  const savedValue = elm.value;
-  elm.value = '';
-  const scrollHeight = elm.scrollHeight;
-  elm.value = savedValue;
-  elm._baseScrollHeight = scrollHeight;
+function getBaseScrollHeight(textarea) {
+  const savedValue = textarea.value;
+  textarea.value = '';
+  const scrollHeight = textarea.scrollHeight;
+  textarea.value = savedValue;
+  textarea._baseScrollHeight = scrollHeight;
   return scrollHeight;
 }
 
-// set message textarea height dynamically
-function onTextareaInput(e) {
-  const elm = e.target;
-  if (elm.classList.contains('autoExpand') && elm.nodeName === 'TEXTAREA') {
-    const rows = parseInt(elm.getAttribute('data-min-rows'), 10);
-    elm.rows = rows;
-    const baseScrollHeight = elm._baseScrollHeight || getScrollHeight(elm);
-    const currentScrollHeight = elm.scrollHeight;
-    elm.rows = currentScrollHeight < baseScrollHeight ? rows : rows + Math.ceil((currentScrollHeight - baseScrollHeight) / 16);
+function setMessageTextareaHeight(e) {
+  const textarea = e.target;
+  if (textarea.classList.contains('autoExpand') && textarea.nodeName === 'TEXTAREA') {
+    const rows = parseInt(textarea.getAttribute('data-min-rows'), 10);
+    textarea.rows = rows;
+    const baseScrollHeight = textarea._baseScrollHeight || getBaseScrollHeight(textarea);
+    const currentScrollHeight = textarea.scrollHeight;
+    textarea.rows = currentScrollHeight < baseScrollHeight ? rows : rows + Math.ceil((currentScrollHeight - baseScrollHeight) / 16);
   }
 }
 
-// add input event listeners
-myForm.addEventListener('input', (e) => {
+formElement.addEventListener('input', (e) => {
   if (e.target === message || e.target === sender) {
-    submitActivation();
+    enableSubmitButton();
     if (e.target === sender) {
-      onSenderInput(e);
+      setSenderInputWidth(e);
     } else {
-      onTextareaInput(e);
+      setMessageTextareaHeight(e);
     }
   }
 });
 
-// handle form submission
-myForm.addEventListener('submit', handleSubmit);
+formElement.addEventListener('submit', handleFormSubmission);
 
-function handleSubmit(event) {
-  event.preventDefault();
+function handleFormSubmission(e) {
+  e.preventDefault();
 
-  const form = event.target;
+  const form = e.target;
   const { action } = form;
 
   const headers = {
@@ -84,23 +78,18 @@ function handleSubmit(event) {
 
 function handleResponse(response) {
   if (response.ok) {
-    handleSuccess();
+    handleFormSubmissionSuccess();
   } else {
     throw new Error(`Network response was not ok. Response status: ${response.status}`);
   }
 }
 
-function handleSuccess() {
-  const prompt = document.querySelector('#prompt');
-  const form = document.querySelector('form');
-  const success = document.querySelector('#success');
-
-  prompt.classList.add('opacity-0');
-  form.classList.add('hidden');
-  success.classList.replace('hidden', 'grid');
+function handleFormSubmissionSuccess() {
+  promptElement.classList.add('opacity-0');
+  formElement.classList.add('hidden');
+  successElement.classList.replace('hidden', 'grid');
 }
 
 function handleError(error) {
   console.error('Error:', error);
-  // handle error - display error message to user or retry the request
 }
