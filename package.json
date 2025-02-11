@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "cross-env": "7.0.3",
-    "esbuild": "0.19.11",
+    "esbuild": "0.25.0",
     "html-minifier": "4.0.0",
     "netlify-plugin-cache": "1.0.3",
     "postcss": "8.4.33",
