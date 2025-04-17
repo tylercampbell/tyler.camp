@@ -15,10 +15,19 @@ bgcolor: rgb(110, 189, 223)
       <div id="postcard" class="
         w-full max-w-2xl mx-auto p-3 aspect-[1.58] stripes shadow-2xl shadow-purple-900">
 
-        <form name="contact" method="POST" action="/#contact" data-netlify="true" class="
-          relative h-full 
-          flex flex-col justify-between py-4 px-8
-          bg-white">
+        <form 
+          name="contact" 
+          method="POST" 
+          action="/#contact" 
+          netlify-honeypot="bot-field"
+          data-netlify="true" 
+          class="relative h-full flex flex-col justify-between py-4 px-8 bg-white"
+          >
+          <p class="hidden">
+            <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+          </p>
           <label for="message" class="text-sm sm:text-xl font-bold tracking-wider">Dear Tyler,</label>
           <textarea id="message" name="message" placeholder="u have a nice page" rows='3' data-min-rows='3' class="
             text-center font-bold text-sm sm:text-xl border-none bg-transparent placeholder-rose-600 focus:ring-0 tracking-wider resize-none autoExpand "></textarea>
