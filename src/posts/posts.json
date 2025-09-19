@@ -1,6 +1,0 @@
-{  
-  "permalink": "/{{ page.fileSlug }}/",
-  "layout": "page.njk",
-  "tags": "posts",
-  "bgcolor": "rgb(0 149 255)"
-}
